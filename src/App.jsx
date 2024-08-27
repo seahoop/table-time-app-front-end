@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {Routes, Route} from "react-router-dom"
-import NavBar from './components/NavBar/NavBar'
+import NavBar from './components/Bar/NavBar'
 import './App.css'
 
 function App() {
