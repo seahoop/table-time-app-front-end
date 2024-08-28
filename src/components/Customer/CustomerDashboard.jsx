@@ -1,16 +1,17 @@
+import RestaurantList from "./ReservationList.jsx"
 
 function CustomerDashboard(props) {
-
+  const { restaurants } = props
   return (
     <>
-    <h2>Welcome user!</h2>
-    <main>
-      <section>
-        <RestaurantList restaurants={restaurants} />
-      </section>
-      <aside>
-      </aside>
-    </main>
+      <h2>Welcome user!</h2>
+      <main>
+        <section>
+          <RestaurantList restaurants={restaurants} />
+        </section>
+        <aside>
+        </aside>
+      </main>
     </>
   )
 }
