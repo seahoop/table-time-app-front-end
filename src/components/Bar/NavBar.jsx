@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom"
+
 const NavBar = ({ customer, restaurant }) => {
-  const isSignedIn = customer || restaurant
+
     return (
       <>
-        (isSignedIn ? )
+       <nav>
+    <Link to="/">Home</Link>
+  </nav>
+       
       </>
     )
   }
