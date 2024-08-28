@@ -1,7 +1,8 @@
-const NavBar = ({ user }) => {
+const NavBar = ({ customer, restaurant }) => {
+  const isSignedIn = customer || restaurant
     return (
       <>
-        <p>Hello Navbar</p>
+        (isSignedIn ? )
       </>
     )
   }
