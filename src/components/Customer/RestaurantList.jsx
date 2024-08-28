@@ -5,7 +5,7 @@ function RestaurantList(props) {
   return (
     <div className='grid-container'>
       {restaurants.map((restaurant) => {
-        return <RestaurantCard img={restaurant.img} name={restaurant.name} about={restaurant.about}/>
+        return <RestaurantCard img={restaurant.image} name={restaurant.name} about={restaurant.about} key={restaurant.name}/>
       })}
     </div>
   )

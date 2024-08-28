@@ -1,4 +1,4 @@
-import RestaurantList from "./ReservationList.jsx"
+import RestaurantList from "./RestaurantList.jsx"
 
 function CustomerDashboard(props) {
   const { restaurants } = props
