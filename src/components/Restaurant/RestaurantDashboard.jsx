@@ -1,7 +1,7 @@
-function Dashboard() {
+function RestaurantDashboard() {
   return (
-    <div>Dashboard</div>
+    <div>RestaurantDashboard</div>
   )
 }
 
-export default Dashboard
+export default RestaurantDashboard

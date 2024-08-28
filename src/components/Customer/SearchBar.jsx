@@ -16,7 +16,7 @@ function SearchBar({ searchRestaurants }) {
 
   return (
     <>
-      <h2>SearchBar</h2>
+      <h2>Search for your favorite restaurants!</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="search">Search Restaurant: </label>
         <input
