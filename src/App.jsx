@@ -6,8 +6,10 @@ import restaurantData from './assets/restaurants.js'
 import SearchBar from './components/Customer/SearchBar.jsx'
 import { Link, Route, Routes } from 'react-router-dom'
 import NavBar from './components/Bar/NavBar.jsx'
+import FooterBar from './components/Bar/FooterBar.jsx'
 
 function App() {
+  const [user, setUser] = useState(null)
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
 
@@ -15,8 +17,7 @@ function App() {
   const searchRestaurants = (query) => {
     if (query) {
       const filteredRestaurants = restaurantData.filter(restaurant =>
-        restaurant.name.toLowerCase().includes(query.toLowerCase())
-      )
+        restaurant.name.toLowerCase().includes(query.toLowerCase()))
       setRestaurants(filteredRestaurants)
     } else {
       setRestaurants(restaurantData) // Reset to original data if query is empty
@@ -25,19 +26,13 @@ function App() {
 
   return (
     <>
-      <SearchBar searchRestaurants={searchRestaurants} />
-      <CustomerDashboard restaurants={restaurants} reservations={reservations} />
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<CustomerDashboard restaurants={restaurants}/>} />
+        <Route path='/dashboard' element={<CustomerDashboard restaurants={restaurants} reservations={reservations}/>} />
+      </Routes>
+      <FooterBar />
     </>
-    
   )
 }
-
-<div>
- <NavBar>
- <Routes>
-  <Route path='/' element={<h1>WELCOME TO TABLE-TIME</h1>} />
-  </Routes>
- </NavBar>
-  
-</div>
 export default App

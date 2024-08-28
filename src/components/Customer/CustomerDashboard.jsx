@@ -10,10 +10,14 @@ function CustomerDashboard(props) {
         <section>
           <RestaurantList restaurants={restaurants} />
         </section>
-        <aside>
-          <h1>My Reservations</h1>
-          <ReservationList reservations={reservations} />
-        </aside>
+        {reservations ?
+          <aside>
+            <h1>My Reservations</h1>
+            <ReservationList reservations={reservations} />
+          </aside> 
+          :
+          <></> 
+      }
       </main>
     </>
   )
