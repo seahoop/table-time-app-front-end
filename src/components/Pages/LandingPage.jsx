@@ -1,5 +1,5 @@
-import RestaurantList from "./Customer/RestaurantList"
-import SearchBar from "./Customer/SearchBar"
+import RestaurantList from "../Customer/RestaurantList"
+import SearchBar from "../Customer/SearchBar"
 
 function LandingPage({ restaurants, searchRestaurants }) {
     return (
