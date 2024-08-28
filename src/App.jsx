@@ -1,21 +1,30 @@
 import { useState } from 'react'
-import { Routes, Route } from "react-router-dom"
-import NavBar from './components/Bar/NavBar'
 import './App.css'
 import CustomerDashboard from './components/Customer/CustomerDashboard'
 import reservationData from './assets/reservations.js'
 import restaurantData from './assets/restaurants.js'
+import SearchBar from './components/Customer/SearchBar.jsx'
 
 function App() {
-  const [customerUser, setCustomerUser] = useState(null)
-  const [restaurantUser, setRestaurantUser] = useState(null)
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
 
+  // Function to handle search
+  const searchRestaurants = (query) => {
+    if (query) {
+      const filteredRestaurants = restaurantData.filter(restaurant =>
+        restaurant.name.toLowerCase().includes(query.toLowerCase())
+      )
+      setRestaurants(filteredRestaurants)
+    } else {
+      setRestaurants(restaurantData) // Reset to original data if query is empty
+    }
+  }
+
   return (
     <>
-      {/* <NavBar customer={customer} restaurant={restaurant} /> */}
-      <CustomerDashboard restaurants={restaurants} reservations={reservations}/>
+      <SearchBar searchRestaurants={searchRestaurants} />
+      <CustomerDashboard restaurants={restaurants} reservations={reservations} />
     </>
   )
 }

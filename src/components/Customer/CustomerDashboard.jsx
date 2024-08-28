@@ -1,7 +1,8 @@
 import RestaurantList from "./RestaurantList.jsx"
+import ReservationList from './ReservationList.jsx'
 
 function CustomerDashboard(props) {
-  const { restaurants } = props
+  const { restaurants, reservations } = props
   return (
     <>
       <h2>Welcome user!</h2>
@@ -10,6 +11,8 @@ function CustomerDashboard(props) {
           <RestaurantList restaurants={restaurants} />
         </section>
         <aside>
+          <h1>My Reservations</h1>
+          <ReservationList reservations={reservations} />
         </aside>
       </main>
     </>
