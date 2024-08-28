@@ -4,6 +4,8 @@ import CustomerDashboard from './components/Customer/CustomerDashboard'
 import reservationData from './assets/reservations.js'
 import restaurantData from './assets/restaurants.js'
 import SearchBar from './components/Customer/SearchBar.jsx'
+import { Link, Route, Routes } from 'react-router-dom'
+import NavBar from './components/Bar/NavBar.jsx'
 
 function App() {
   const [restaurants, setRestaurants] = useState(restaurantData)
@@ -26,7 +28,16 @@ function App() {
       <SearchBar searchRestaurants={searchRestaurants} />
       <CustomerDashboard restaurants={restaurants} reservations={reservations} />
     </>
+    
   )
 }
 
+<div>
+ <NavBar>
+ <Routes>
+  <Route path='/' element={<h1>WELCOME TO TABLE-TIME</h1>} />
+  </Routes>
+ </NavBar>
+  
+</div>
 export default App
