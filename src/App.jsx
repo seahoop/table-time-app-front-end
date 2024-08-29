@@ -5,6 +5,9 @@ import './App.css'
 import CustomerDashboard from './components/Customer/CustomerDashboard'
 import reservationData from './assets/reservations.js'
 import restaurantData from './assets/restaurants.js'
+//test oneline below
+
+
 
 function App() {
   const [customerUser, setCustomerUser] = useState(null)
@@ -16,8 +19,11 @@ function App() {
     <>
       {/* <NavBar customer={customer} restaurant={restaurant} /> */}
       <CustomerDashboard restaurants={restaurants} reservations={reservations}/>
+    
+      
     </>
   )
 }
+
 
 export default App
