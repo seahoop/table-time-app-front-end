@@ -1,0 +1,55 @@
+.restaurant-dashboard {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .restaurant-dashboard h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .restaurant-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .restaurant-details img {
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .restaurant-details .about {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .restaurant-details .address {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .days-of-the-week,
+  .reservation-container {
+    margin: 20px 0;
+  }
+  
+  @media (min-width: 768px) {
+    .restaurant-dashboard {
+      padding: 30px;
+    }
+  
+    .restaurant-details img {
+      width: 80%; /* Adjust to fit larger screens */
+    }
+  }
+  

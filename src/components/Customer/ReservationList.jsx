@@ -1,4 +1,5 @@
 import ReservationCard from "./ReservationCard"
+import ("./ReservationList.css")
 
 function ReservationList(props) {
   const { reservations } = props

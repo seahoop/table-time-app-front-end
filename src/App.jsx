@@ -13,6 +13,7 @@ import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
 import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
 
 
+
 // Eric Testing Imports
 
 
@@ -52,8 +53,8 @@ function App() {
   // Guests, Customers, and Restaurants ALL go to the Home component
   return (
     // Rodney Testing
-    // <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
-    <RestaurantDashboard restaurant={type2} reservations={reservations} />
+    <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
+    // <RestaurantDashboard restaurant={type2} reservations={reservations} />
 
 
     // Eric Testing
