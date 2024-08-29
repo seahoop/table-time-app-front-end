@@ -13,6 +13,7 @@ import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
 import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
 
 
+
 // Eric Testing Imports
 import LandingPage from './components/admin/landingPage.jsx'
 import SignUp from './components/admin/signUp.jsx'
@@ -53,8 +54,8 @@ function App() {
   return (
     
     // Rodney Testing
-    // <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
-    // <RestaurantDashboard restaurant={type2} reservations={reservations} />
+    <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
+
 
 
     // Eric Testing

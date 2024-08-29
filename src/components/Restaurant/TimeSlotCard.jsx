@@ -1,3 +1,4 @@
+import "./TimeSlotCard.css"
 function TimeSlotCard(props) {
   const { time } = props;
 

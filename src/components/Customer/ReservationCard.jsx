@@ -1,3 +1,5 @@
+import ("./ReservationCard.css")
+
 function ReservationCard(props) {
   const {location, guests, date, time, helpers} = props
   return (
@@ -5,6 +7,7 @@ function ReservationCard(props) {
       <p>
         {location}
       </p>
+      <img src="https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png" alt="guest-icon" />
       <p>
         {guests}
       </p>
