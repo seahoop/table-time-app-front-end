@@ -1,7 +1,11 @@
-function TimeSlotCard() {
+function TimeSlotCard(props) {
+  const { time } = props;
+
   return (
-    <div>TimeSlotCard</div>
-  )
+    <div className="time-slot-card">
+      <button>{time}</button>
+    </div>
+  );
 }
 
-export default TimeSlotCard
+export default TimeSlotCard;
