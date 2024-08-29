@@ -6,8 +6,10 @@ import restaurantData from './assets/restaurants.js'
 import SearchBar from './components/Customer/SearchBar.jsx'
 import { Link, Route, Routes } from 'react-router-dom'
 import NavBar from './components/Bar/NavBar.jsx'
+import Dashboard from './components/Restaurant/Dashboard.jsx'
 
 function App() {
+  const [user, setUser] = useState(restaurantData[0])
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
 
@@ -25,19 +27,8 @@ function App() {
 
   return (
     <>
-      <SearchBar searchRestaurants={searchRestaurants} />
-      <CustomerDashboard restaurants={restaurants} reservations={reservations} />
     </>
     
   )
 }
-
-<div>
- <NavBar>
- <Routes>
-  <Route path='/' element={<h1>WELCOME TO TABLE-TIME</h1>} />
-  </Routes>
- </NavBar>
-  
-</div>
 export default App
