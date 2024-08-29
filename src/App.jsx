@@ -26,7 +26,7 @@ let type1 = customerData[0]
 let type2 = restaurantData[0]
 
 function App() {
-  const [user, setUser] = useState(type2)
+  const [user, setUser] = useState(type1)
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
 
@@ -54,8 +54,8 @@ function App() {
     
     // Rodney Testing
     // <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
-    //<RestaurantDashboard restaurant={type2} reservations={reservations} />
-    
+    // <RestaurantDashboard restaurant={type2} reservations={reservations} />
+
 
     // Eric Testing
     
@@ -82,14 +82,11 @@ function App() {
 
 
     // Ismael Testing
-    // <>
-    //   <NavBar />
-    //     <Route path='/home' element={<Home user={user} restaurants={restaurants} methods={methods}/>} />
-    //   <FooterBar />
-    // </>
-
-
-    
+    <>
+      <Routes>
+        <Route path='/' element={<CustomerDashboard restaurants={restaurantData} reservations={user.myReservations} searchRestaurants={searchRestaurants}/>} />
+      </Routes>
+    </>
   )
 }
 
