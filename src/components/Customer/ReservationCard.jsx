@@ -1,10 +1,8 @@
 import ("./ReservationCard.css")
 
 function ReservationCard(props) {
-  const {location, guests, date, time} = props
+  const {location, guests, date, time, helpers} = props
   return (
-  
-   
     <div className="grid-item">
       <p>
         {location}

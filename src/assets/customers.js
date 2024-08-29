@@ -1,7 +1,23 @@
+
 const customerData = [
     {
         username: "jaxonSmith",
-        password: "Xp34tb"
+        password: "Xp34tb",
+        myReservations: [
+            {
+                guests: 4,
+                date: '2024-09-01',
+                time: '18:30',
+                location: 'McDonalds',
+                isAvailable: true
+            },
+            {
+                guests: 2,
+                date: '2024-09-02',
+                time: '19:00',
+                location: 'McDonalds',
+                isAvailable: true
+            },]
     },
     {
         username: "AvaJohnson",

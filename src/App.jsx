@@ -15,10 +15,10 @@ import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx
 
 
 // Eric Testing Imports
-
-
-
-
+import LandingPage from './components/admin/landingPage.jsx'
+import SignUp from './components/admin/signUp.jsx'
+import SignIn from './components/admin/signIn.jsx'
+import AdminPanel from './components/admin/adminPanel.jsx'
 // Ismael Testing Imports
 
 
@@ -27,7 +27,7 @@ let type1 = customerData[0]
 let type2 = restaurantData[0]
 
 function App() {
-  const [user, setUser] = useState(type2)
+  const [user, setUser] = useState(type1)
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
 
@@ -52,22 +52,42 @@ function App() {
 
   // Guests, Customers, and Restaurants ALL go to the Home component
   return (
+    
     // Rodney Testing
     <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
-    // <RestaurantDashboard restaurant={type2} reservations={reservations} />
+
 
 
     // Eric Testing
+    
+    <div className="landingPage">
+      <Routes>
+      
+        <Route path="/admin" exact element={<LandingPage />} />
+        
+        <Route path="/admin/signUp" element={<SignUp />} />
+
+        <Route path="/admin/signIn" element={<SignIn />} />
+      
+        <Route path="/admin/adminPanel" element={<AdminPanel/>} />
+
+      </Routes>
+    </div>
+
+    
+
+    
+ 
 
 
 
 
     // Ismael Testing
-    // <>
-    //   <NavBar />
-    //     <Route path='/home' element={<Home user={user} restaurants={restaurants} methods={methods}/>} />
-    //   <FooterBar />
-    // </>
+    <>
+      <Routes>
+        <Route path='/' element={<CustomerDashboard restaurants={restaurantData} reservations={user.myReservations} searchRestaurants={searchRestaurants}/>} />
+      </Routes>
+    </>
   )
 }
 
