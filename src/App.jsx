@@ -53,7 +53,7 @@ function App() {
   return (
     
     // Rodney Testing
-    // <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
+    <CustomerDashboard restaurants={restaurants} user={user} searchRestaurants={searchRestaurants} />
 
 
 
