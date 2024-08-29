@@ -1,4 +1,4 @@
-const restaurantData = [
+export const restaurantData = [
     {
         username: "bellaItalia",
         password: "pasta2024",
@@ -80,5 +80,6 @@ const restaurantData = [
         image: "https://cdn.vox-cdn.com/thumbor/JfuFIfdE3whsWXZXzVK80yPWvew=/0x0:3000x2001/1200x900/filters:focal(1260x761:1740x1241):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/70976407/Una_Pizza_Napoletana___Margherita_Pizza.24.jpg"
     }
 ]
+
 
 export default restaurantData

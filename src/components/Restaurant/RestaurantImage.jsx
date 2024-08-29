@@ -1,7 +1,11 @@
-function RestaurantImage() {
+function RestaurantImage(props) {
+  const { image } = props;
+
   return (
-    <div>RestaurantImage</div>
-  )
+    <div className="restaurant-image">
+      <img src={image} alt="Restaurant" />
+    </div>
+  );
 }
 
-export default RestaurantImage
+export default RestaurantImage;
