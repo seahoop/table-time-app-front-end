@@ -37,3 +37,5 @@ const customerData = [
         password: "088bbtw"
     }
 ]
+
+export default customerData

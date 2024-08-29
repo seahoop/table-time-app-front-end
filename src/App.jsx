@@ -8,6 +8,20 @@ import NavBar from './components/Bar/NavBar.jsx'
 import FooterBar from './components/Bar/FooterBar.jsx'
 import Home from './components/Pages/Home.jsx'
 
+// Rodney Testing Imports
+import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
+import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
+
+
+// Eric Testing Imports
+
+
+
+
+// Ismael Testing Imports
+
+
+
 let type1 = customerData[0]
 let type2 = restaurantData[0]
 
@@ -37,11 +51,22 @@ function App() {
 
   // Guests, Customers, and Restaurants ALL go to the Home component
   return (
-    <>
-      <NavBar />
-        <Route path='/home' element={<Home user={user} restaurants={restaurants} methods={methods}/>} />
-      <FooterBar />
-    </>
+    // Rodney Testing
+    // <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
+    <RestaurantDashboard restaurant={type2} reservations={reservations} />
+
+
+    // Eric Testing
+
+
+
+
+    // Ismael Testing
+    // <>
+    //   <NavBar />
+    //     <Route path='/home' element={<Home user={user} restaurants={restaurants} methods={methods}/>} />
+    //   <FooterBar />
+    // </>
   )
 }
 
