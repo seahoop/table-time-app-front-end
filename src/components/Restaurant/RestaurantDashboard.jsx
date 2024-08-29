@@ -2,11 +2,11 @@ import DaysOfTheWeek from './DaysOfTheWeek';
 import ReservationContainer from './ReservationContainer';
 import RestaurantDetails from './RestaurantDetails';
 
-function Dashboard(props) {
+function RestaurantDashboard(props) {
   const { restaurant, reservations } = props;
 
   return (
-    <div className="dashboard">
+    <div className="restaurant-dashboard">
       <h2>{restaurant.name}</h2>
       <RestaurantDetails
         about={restaurant.about}
@@ -19,4 +19,4 @@ function Dashboard(props) {
   );
 }
 
-export default Dashboard;
+export default RestaurantDashboard;
