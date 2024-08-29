@@ -1,10 +1,8 @@
-function EditButton({ customerId, reservationid, helper }) {
+function EditButton({ display, setDisplay }) {
 
   const handleClick = async () => {
-    // const response = await editReservation(customerId, reservationId)
-    // helper(response)
+    setDisplay(!display)
   }
-
   return (
     <button onClick={handleClick}>Edit</button>
   )

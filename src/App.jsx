@@ -12,13 +12,12 @@ import Home from './components/Pages/Home.jsx'
 import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
 import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
 
-
-
 // Eric Testing Imports
 import LandingPage from './components/admin/landingPage.jsx'
 import SignUp from './components/admin/signUp.jsx'
 import SignIn from './components/admin/signIn.jsx'
 import AdminPanel from './components/admin/adminPanel.jsx'
+
 // Ismael Testing Imports
 
 
@@ -83,11 +82,11 @@ function App() {
 
 
     // Ismael Testing
-  //   <>
-  //     <Routes>
-  //       <Route path='/' element={<CustomerDashboard restaurants={restaurantData} reservations={user.myReservations} searchRestaurants={searchRestaurants}/>} />
-  //     </Routes>
-  //   </>
+    <>
+      <Routes>
+        <Route path='/' element={<CustomerDashboard restaurants={restaurantData} user={user} searchRestaurants={searchRestaurants}/>} />
+      </Routes>
+    </>
   )
 }
 

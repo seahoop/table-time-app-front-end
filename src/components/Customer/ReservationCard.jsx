@@ -28,7 +28,6 @@ function ReservationCard(props) {
       </div>
     </div>
   )
-
 }
 
 
