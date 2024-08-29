@@ -54,25 +54,25 @@ function App() {
   return (
     
     // Rodney Testing
-    <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
+    <CustomerDashboard restaurants={restaurants} user={user} searchRestaurants={searchRestaurants} />
 
 
 
     // Eric Testing
     
-    <div className="landingPage">
-      <Routes>
+    // <div className="landingPage">
+    //   <Routes>
       
-        <Route path="/admin" exact element={<LandingPage />} />
+    //     <Route path="/admin" exact element={<LandingPage />} />
         
-        <Route path="/admin/signUp" element={<SignUp />} />
+    //     <Route path="/admin/signUp" element={<SignUp />} />
 
-        <Route path="/admin/signIn" element={<SignIn />} />
+    //     <Route path="/admin/signIn" element={<SignIn />} />
       
-        <Route path="/admin/adminPanel" element={<AdminPanel/>} />
+    //     <Route path="/admin/adminPanel" element={<AdminPanel/>} />
 
-      </Routes>
-    </div>
+    //   </Routes>
+    // </div>
 
     
 
@@ -83,11 +83,11 @@ function App() {
 
 
     // Ismael Testing
-    <>
-      <Routes>
-        <Route path='/' element={<CustomerDashboard restaurants={restaurantData} reservations={user.myReservations} searchRestaurants={searchRestaurants}/>} />
-      </Routes>
-    </>
+  //   <>
+  //     <Routes>
+  //       <Route path='/' element={<CustomerDashboard restaurants={restaurantData} reservations={user.myReservations} searchRestaurants={searchRestaurants}/>} />
+  //     </Routes>
+  //   </>
   )
 }
 
