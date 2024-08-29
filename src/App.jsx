@@ -12,13 +12,12 @@ import Home from './components/Pages/Home.jsx'
 import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
 import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
 
-
-
 // Eric Testing Imports
 import LandingPage from './components/admin/landingPage.jsx'
 import SignUp from './components/admin/signUp.jsx'
 import SignIn from './components/admin/signIn.jsx'
 import AdminPanel from './components/admin/adminPanel.jsx'
+
 // Ismael Testing Imports
 
 
@@ -54,25 +53,25 @@ function App() {
   return (
     
     // Rodney Testing
-    <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
+    // <CustomerDashboard restaurants={restaurants} reservations={reservations} searchRestaurants={searchRestaurants} />
 
 
 
     // Eric Testing
     
-    <div className="landingPage">
-      <Routes>
+    // <div className="landingPage">
+    //   <Routes>
       
-        <Route path="/admin" exact element={<LandingPage />} />
+    //     <Route path="/admin" exact element={<LandingPage />} />
         
-        <Route path="/admin/signUp" element={<SignUp />} />
+    //     <Route path="/admin/signUp" element={<SignUp />} />
 
-        <Route path="/admin/signIn" element={<SignIn />} />
+    //     <Route path="/admin/signIn" element={<SignIn />} />
       
-        <Route path="/admin/adminPanel" element={<AdminPanel/>} />
+    //     <Route path="/admin/adminPanel" element={<AdminPanel/>} />
 
-      </Routes>
-    </div>
+    //   </Routes>
+    // </div>
 
     
 
@@ -85,7 +84,7 @@ function App() {
     // Ismael Testing
     <>
       <Routes>
-        <Route path='/' element={<CustomerDashboard restaurants={restaurantData} reservations={user.myReservations} searchRestaurants={searchRestaurants}/>} />
+        <Route path='/' element={<CustomerDashboard restaurants={restaurantData} user={user} searchRestaurants={searchRestaurants}/>} />
       </Routes>
     </>
   )

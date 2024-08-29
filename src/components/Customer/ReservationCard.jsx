@@ -1,9 +1,13 @@
 import ("./ReservationCard.css")
+import EditButton from '../Button/EditButton'
+import { useState } from 'react'
 
 function ReservationCard(props) {
-  const {location, guests, date, time, helpers} = props
+  const {location, guests, date, time} = props
+  const [display, setDisplay] = useState(true)
   return (
     <div className="grid-item">
+      <div className='reservation-details'>
       <p>
         {location}
       </p>
@@ -17,9 +21,12 @@ function ReservationCard(props) {
       <p>
         {time}
       </p>
+      </div>
+      <div className='reservation-buttons'>
+        <EditButton display={display} setDisplay={setDisplay}/>
+      </div>
     </div>
   )
-  
 }
 
 
