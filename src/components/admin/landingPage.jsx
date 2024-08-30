@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const LandingPage = () => {
   return (
     
-
+    <>
     <section id ="landingPage">
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
         <section id ="title">
@@ -35,7 +35,7 @@ const LandingPage = () => {
 
     </div>
     </section>
-    
+    </>
   );
 };
 
