@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const NavBar = ({ customer, restaurant }) => {
+const NavBar = ({user}) => {
 
     return (
       <>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import reservationData from './assets/reservations.js'
 import restaurantData from './assets/restaurants.js'
@@ -19,16 +19,14 @@ import SignIn from './components/admin/signIn.jsx'
 import AdminPanel from './components/admin/adminPanel.jsx'
 
 // Ismael Testing Imports
-
-
-
-let type1 = customerData[0]
-let type2 = restaurantData[0]
+import { getUser, signout } from './services/customer.js'
 
 function App() {
-  const [user, setUser] = useState(type1)
+  const [user, setUser] = useState(getUser())
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
+
+  
 
   // helper functions start here
 
@@ -53,7 +51,7 @@ function App() {
   return (
     
     // Rodney Testing
-    <CustomerDashboard restaurants={restaurants} user={user} searchRestaurants={searchRestaurants} />
+    // <CustomerDashboard restaurants={restaurants} user={user} searchRestaurants={searchRestaurants} />
 
 
 
