@@ -58,7 +58,7 @@ export const customerSignIn = async (formData) => {
 export const getUser = () => {
     const token = localStorage.getItem("token")
     if (!token) return null
-    const user = JSON.parse(atob(json.token.split('')[1]))
+    const user = JSON.parse(atob(token.split('')[1]))
     return user
 }
 
