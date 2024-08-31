@@ -1,12 +1,22 @@
-import { useState} from "react"
+import { useState } from "react"
+import { customerSignIn } from "../../services/auth"
 
 function SignIn() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [formData, setFormData] = useState(
+    {
+      username: '',
+      password: ''
+    }
+  )
 
-  const handleSignIn = (event) => {
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value })
+  }
+
+  const handleSignIn = async (event) => {
     event.preventDefault()
-   /*-------Make a fetch API call---------*/
+    await customerSignIn(formData)
+    
   }
   return (
     <div>
@@ -15,25 +25,25 @@ function SignIn() {
         <div>
           <label htmlFor="username">Username:</label>
           <input id="username" name="username"
-          type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          required />
+            type="text"
+            value={formData.username}
+            onChange={handleChange}
+            required />
         </div>
         <div>
           <label htmlFor="password">Password:</label>
           <input id="password" name="password"
-          type="text" 
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
+            type="text"
+            value={formData.password}
+            onChange={handleChange}
+            required
           />
         </div>
         <button type="submit">Sign In</button>
       </form>
-      
-      
-      </div>
+
+
+    </div>
   )
 }
 
