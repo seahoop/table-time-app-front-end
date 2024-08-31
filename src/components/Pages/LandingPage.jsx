@@ -1,7 +1,5 @@
 import RestaurantList from "../Customer/RestaurantList"
 import SearchBar from "../Customer/SearchBar"
-import CustomerDashboard from "../Customer/CustomerDashboard"
-import RestaurantDashboard from "../Restaurant/RestaurantDashboard"
 import { useNavigate } from "react-router-dom"
 
 function LandingPage({ visitorType, restaurants, searchRestaurants }) {

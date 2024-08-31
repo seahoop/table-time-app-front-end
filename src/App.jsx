@@ -29,13 +29,15 @@ import { getUser, getVisitorType } from './services/auth.js'
 function App() {
   const [visitorType, setVisitorType] = useState(getVisitorType())
   const [user, setUser] = useState(getUser())
-  const [restaurants, setRestaurants] = useState(restaurantData)
+  const [restaurants, setRestaurants] = useState([])
   const [reservations, setReservations] = useState(reservationData)
 
   useEffect(() => {
-    // fetch all restaurants in databse
+    // fetch all restaurants in database
+    // maybe do this in landing page instead
     showRestaurants()
-      .then((allRestaurants) => setRestaurants(allRestaurants)) 
+      .then((allRestaurants) => setRestaurants(allRestaurants))
+
   }, [visitorType, user])
 
 
@@ -97,6 +99,8 @@ function App() {
           restaurants={restaurants}
           user={user}
           searchRestaurants={searchRestaurants} />} />
+          {/* Do this with every restaurant and use fetch */}
+        {/* <Route path='/customers/restaurants/:restaurantId' element={<RestaurantDashboard />} /> */}
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />
