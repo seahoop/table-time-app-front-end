@@ -1,8 +1,17 @@
 import SignOutButton from '../Button/SignOutButton'
-function CustomerNavBar() {
+import CustomerDashboardButton from '../Button/CustomerDashboardButton'
+
+export function CustomerDashboardNavBar() {
     return (
         <SignOutButton />
     )
 }
 
-export default CustomerNavBar
+export function RestaurantPageNavBar() {
+    return (
+        <>
+            <SignOutButton />
+            <CustomerDashboardButton />
+        </>
+    )
+}
