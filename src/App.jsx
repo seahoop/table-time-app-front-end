@@ -36,7 +36,7 @@ function App() {
     // fetch all restaurants in databse
     showRestaurants()
       .then((allRestaurants) => setRestaurants(allRestaurants)) 
-  }, [])
+  }, [visitorType, user])
 
 
   // helper functions start here

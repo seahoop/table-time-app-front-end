@@ -16,8 +16,15 @@ function CustomerDashboard(props) {
           <RestaurantList restaurants={restaurants} />
         </section>
         <aside>
-          <h1>My Reservations</h1>
-          <ReservationList reservations={customer.myReservations} setCustomer={setCustomer}/>
+        {user.myReservations ?
+          <>
+            <h1>My Reservations</h1>
+            <ReservationList reservations={customer.myReservations} setCustomer={setCustomer} />
+          </> :
+          <>
+          <h2>Make your first reservation!</h2>
+          </>
+        }
         </aside>
       </main>
     </>
