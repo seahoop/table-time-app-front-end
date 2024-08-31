@@ -3,8 +3,8 @@ import './App.css'
 import reservationData from './assets/reservations.js'
 import restaurantData from './assets/restaurants.js'
 import customerData from './assets/customers.js'
-import { Link, Route, Routes } from 'react-router-dom'
-import NavBar from './components/Bar/NavBar.jsx'
+import { Link, Route, Routes, useNavigate } from 'react-router-dom'
+import NavBar from './components/Bar/LandingNavBar.jsx'
 import FooterBar from './components/Bar/FooterBar.jsx'
 import Home from './components/Pages/Home.jsx'
 
@@ -24,13 +24,14 @@ import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
 import SignIn from './components/Authorization/SignIn.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
 import { showRestaurants } from './services/restaurant.js'
-import { getUser, getVisitorType } from './services/auth.js'
+import { getUser, getVisitorType, signout } from './services/auth.js'
 
 function App() {
   const [visitorType, setVisitorType] = useState(getVisitorType())
   const [user, setUser] = useState(getUser())
   const [restaurants, setRestaurants] = useState([])
   const [reservations, setReservations] = useState(reservationData)
+  const navigate = useNavigate()
 
   useEffect(() => {
     // fetch all restaurants in database
@@ -53,11 +54,19 @@ function App() {
       setRestaurants(restaurantData) // Reset to original data if query is empty
     }
   }
+  
+  const handleSignOut = () => {
+    signout()
+    setVisitorType(getVisitorType())
+    setUser(getUser())
+    navigate('/')
+  }
   // helper functions end here
 
   // helper functions collected here in methods object
   const methods = {
     searchRestaurants,
+    handleSignOut
   }
 
   // Guests, Customers, and Restaurants ALL go to the Home component
@@ -87,6 +96,7 @@ function App() {
 
     // Ismael Testing
     <>
+      <NavBar methods={methods} />
       <Routes>
         <Route path='/' element={<LandingPage
           visitorType={visitorType}
@@ -99,7 +109,7 @@ function App() {
           restaurants={restaurants}
           user={user}
           searchRestaurants={searchRestaurants} />} />
-          {/* Do this with every restaurant and use fetch */}
+        {/* Do this with every restaurant and use fetch */}
         {/* <Route path='/customers/restaurants/:restaurantId' element={<RestaurantDashboard />} /> */}
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
