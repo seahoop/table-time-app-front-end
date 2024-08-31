@@ -21,15 +21,19 @@ import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx
 // Ismael Testing Imports
 // import { getUser, signout } from './services/customer.js'
 import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
-import SignIn  from './components/Authorization/SignIn.jsx'
+import SignIn from './components/Authorization/SignIn.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
 
 function App() {
   const [visitorType, setVisitorType] = useState('guest')
+  const [user, setUser] = useState(restaurantData[0])
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
 
-  
+  useEffect(() => {
+
+  }, [])
+
 
   // helper functions start here
 
@@ -52,32 +56,32 @@ function App() {
 
   // Guests, Customers, and Restaurants ALL go to the Home component
   return (
-    
+
     // Rodney Testing
     // <CustomerDashboard restaurants={restaurants} user={user} searchRestaurants={searchRestaurants} />
 
 
 
     // Eric Testing
-    
+
     // <div className="landingPage">
     //   <Routes>
-      
+
     //     <Route path="/admin" exact element={<LandingPage />} />
-        
+
     //     <Route path="/admin/signUp" element={<SignUp />} />
 
     //     <Route path="/admin/signIn" element={<SignIn />} />
-      
+
     //     <Route path="/admin/adminPanel" element={<AdminPanel/>} />
 
     //   </Routes>
     // </div>
 
-    
 
-    
- 
+
+
+
 
 
 
@@ -85,10 +89,20 @@ function App() {
     // Ismael Testing
     <>
       <Routes>
-        {/* <Route path='/' element={<CustomerDashboard restaurants={restaurantData} user={user} searchRestaurants={searchRestaurants}/>} /> */}
-        <Route path='/' element={<LandingPage />} />
+        <Route path='/' element={<LandingPage
+          visitorType={visitorType}
+          restaurants={restaurants}
+          searchRestaurants={searchRestaurants}
+        />} />
         <Route path='/customers/signup' element={<SignUpCustomer />} />
         <Route path='/signin' element={<SignIn />} />
+        <Route path='/customers/dashboard' element={<CustomerDashboard
+          restaurants={restaurants}
+          user={user}
+          searchRestaurants={searchRestaurants} />} />
+        <Route path='/restaurants/dashboard' element={<RestaurantDashboard
+          restaurant={user}
+        />} />
       </Routes>
     </>
   )
