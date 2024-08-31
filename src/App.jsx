@@ -21,15 +21,25 @@ import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx
 // Ismael Testing Imports
 // import { getUser, signout } from './services/customer.js'
 import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
-import SignIn  from './components/Authorization/SignIn.jsx'
+import SignIn from './components/Authorization/SignIn.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
+import { showRestaurants } from './services/restaurant.js'
+import { getUser, getVisitorType } from './services/auth.js'
 
 function App() {
-  const [visitorType, setVisitorType] = useState('guest')
-  const [restaurants, setRestaurants] = useState(restaurantData)
+  const [visitorType, setVisitorType] = useState(getVisitorType())
+  const [user, setUser] = useState(getUser())
+  const [restaurants, setRestaurants] = useState([])
   const [reservations, setReservations] = useState(reservationData)
 
-  
+  useEffect(() => {
+    // fetch all restaurants in database
+    // maybe do this in landing page instead
+    showRestaurants()
+      .then((allRestaurants) => setRestaurants(allRestaurants))
+
+  }, [visitorType, user])
+
 
   // helper functions start here
 
@@ -52,43 +62,48 @@ function App() {
 
   // Guests, Customers, and Restaurants ALL go to the Home component
   return (
-    
+
     // Rodney Testing
     // <CustomerDashboard restaurants={restaurants} user={user} searchRestaurants={searchRestaurants} />
 
 
 
     // Eric Testing
-    
+
     // <div className="landingPage">
     //   <Routes>
-      
+
     //     <Route path="/admin" exact element={<LandingPage />} />
-        
+
     //     <Route path="/admin/signUp" element={<SignUp />} />
 
     //     <Route path="/admin/signIn" element={<SignIn />} />
-      
+
     //     <Route path="/admin/adminPanel" element={<AdminPanel/>} />
 
     //   </Routes>
     // </div>
 
-    
-
-    
- 
-
-
-
 
     // Ismael Testing
     <>
       <Routes>
-        {/* <Route path='/' element={<CustomerDashboard restaurants={restaurantData} user={user} searchRestaurants={searchRestaurants}/>} /> */}
-        <Route path='/' element={<LandingPage />} />
+        <Route path='/' element={<LandingPage
+          visitorType={visitorType}
+          restaurants={restaurants}
+          searchRestaurants={searchRestaurants}
+        />} />
         <Route path='/customers/signup' element={<SignUpCustomer />} />
         <Route path='/signin' element={<SignIn />} />
+        <Route path='/customers/dashboard' element={<CustomerDashboard
+          restaurants={restaurants}
+          user={user}
+          searchRestaurants={searchRestaurants} />} />
+          {/* Do this with every restaurant and use fetch */}
+        {/* <Route path='/customers/restaurants/:restaurantId' element={<RestaurantDashboard />} /> */}
+        <Route path='/restaurants/dashboard' element={<RestaurantDashboard
+          restaurant={user}
+        />} />
       </Routes>
     </>
   )

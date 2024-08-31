@@ -8,6 +8,20 @@ const handleResponse = async (response) => {
     return json
 }
 
+export const getUser = () => {
+    const token = localStorage.getItem("token");
+    if (!token) return null;
+    const user = JSON.parse(atob(token.split('.')[1]));
+    return user;
+}
+
+export const getVisitorType = () => {
+    const visitorType = localStorage.getItem('visitorType')
+    if (!visitorType) {
+        return 'guest'
+    } else return visitorType
+}
+
 const storeTokenAndGetUser = async (token) => {
     localStorage.setItem('token', token)
     const user = JSON.parse(atob(token.split(".")[1]))
