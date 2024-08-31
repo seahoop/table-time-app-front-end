@@ -13,16 +13,19 @@ import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
 import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
 
 // Eric Testing Imports
-import LandingPage from './components/admin/landingPage.jsx'
-import SignUp from './components/admin/signUp.jsx'
-import SignIn from './components/admin/signIn.jsx'
-import AdminPanel from './components/admin/adminPanel.jsx'
+// import LandingPage from './components/admin/landingPage.jsx'
+// import SignUp from './components/admin/signUp.jsx'
+// import SignIn from './components/admin/signIn.jsx'
+// import AdminPanel from './components/admin/adminPanel.jsx'
 
 // Ismael Testing Imports
-import { getUser, signout } from './services/customer.js'
+// import { getUser, signout } from './services/customer.js'
+import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
+import SignIn  from './components/Authorization/SignIn.jsx'
+import LandingPage from './components/Pages/LandingPage.jsx'
 
 function App() {
-  const [user, setUser] = useState(getUser())
+  const [visitorType, setVisitorType] = useState('guest')
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
 
@@ -82,7 +85,10 @@ function App() {
     // Ismael Testing
     <>
       <Routes>
-        <Route path='/' element={<CustomerDashboard restaurants={restaurantData} user={user} searchRestaurants={searchRestaurants}/>} />
+        {/* <Route path='/' element={<CustomerDashboard restaurants={restaurantData} user={user} searchRestaurants={searchRestaurants}/>} /> */}
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/customers/signup' element={<SignUpCustomer />} />
+        <Route path='/signin' element={<SignIn />} />
       </Routes>
     </>
   )
