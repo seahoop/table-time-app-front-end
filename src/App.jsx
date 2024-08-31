@@ -23,15 +23,19 @@ import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx
 import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
 import SignIn from './components/Authorization/SignIn.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
+import { showRestaurants } from './services/restaurant.js'
+import { getUser, getVisitorType } from './services/auth.js'
 
 function App() {
-  const [visitorType, setVisitorType] = useState('guest')
-  const [user, setUser] = useState(restaurantData[0])
+  const [visitorType, setVisitorType] = useState(getVisitorType())
+  const [user, setUser] = useState(getUser())
   const [restaurants, setRestaurants] = useState(restaurantData)
   const [reservations, setReservations] = useState(reservationData)
 
   useEffect(() => {
-
+    // fetch all restaurants in databse
+    showRestaurants()
+      .then((allRestaurants) => setRestaurants(allRestaurants)) 
   }, [])
 
 
@@ -77,13 +81,6 @@ function App() {
 
     //   </Routes>
     // </div>
-
-
-
-
-
-
-
 
 
     // Ismael Testing
