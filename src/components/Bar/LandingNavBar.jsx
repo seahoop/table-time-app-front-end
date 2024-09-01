@@ -6,7 +6,6 @@ const LandingNavBar = ({ methods }) => {
       <nav>
         <SignUpAndInButtons />
       </nav>
-
     </>
   )
 }

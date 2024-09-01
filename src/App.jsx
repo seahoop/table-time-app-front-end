@@ -63,6 +63,10 @@ function App() {
   }
   // helper functions end here
 
+  const handleUserAndVisitorType = ({user, visitorType}) => {
+    setUser(user)
+    setVisitorType(visitorType)
+  }
   // helper functions collected here in methods object
   const methods = {
     searchRestaurants,
@@ -104,7 +108,7 @@ function App() {
           searchRestaurants={searchRestaurants}
         />} />
         <Route path='/customers/signup' element={<SignUpCustomer />} />
-        <Route path='/signin' element={<SignIn />} />
+        <Route path='/signin' element={<SignIn handleUserAndVisitorType={handleUserAndVisitorType}/>} />
         <Route path='/customers/dashboard' element={<CustomerDashboard
           restaurants={restaurants}
           user={user}
