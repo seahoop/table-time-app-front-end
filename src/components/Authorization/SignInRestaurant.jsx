@@ -1,13 +1,14 @@
 import { useState } from "react"
-import { customerSignUp, getVisitorType } from "../../services/auth"
 import { useNavigate } from "react-router-dom"
+import { restaurantSignIn, getVisitorType } from "../../services/auth"
 
-function SignUpCustomer({ handleUserAndVisitorType }) {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    confirmPassword: ''
-  })
+function SignInRestaurant({ handleUserAndVisitorType }) {
+  const [formData, setFormData] = useState(
+    {
+      username: '',
+      password: ''
+    }
+  )
 
   const navigate = useNavigate()
 
@@ -15,22 +16,17 @@ function SignUpCustomer({ handleUserAndVisitorType }) {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
-  const handleSignUp = async (event) => {
+  const handleSignIn = async (event) => {
     event.preventDefault()
-    if (event.target.password.value !== event.target.confirmPassword.value) {
-      alert('Passwords do not match')
-      return
-    }
-    const user = await customerSignUp(formData)
+    const user = await restaurantSignIn(formData)
     const visitorType = getVisitorType()
     handleUserAndVisitorType({user, visitorType})
     navigate('/')
   }
-
   return (
     <div>
-      <h2>Sign Up as a Customer!</h2>
-      <form onSubmit={handleSignUp}>
+      <h2>SignIn</h2>
+      <form onSubmit={handleSignIn}>
         <div>
           <label htmlFor="username">Username:</label>
           <input id="username" name="username"
@@ -48,17 +44,7 @@ function SignUpCustomer({ handleUserAndVisitorType }) {
             required
           />
         </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input id="confirmPassword" name="confirmPassword"
-            type="text"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button type="submit">Sign Up</button>
+        <button type="submit">Sign In</button>
       </form>
 
 
@@ -66,4 +52,4 @@ function SignUpCustomer({ handleUserAndVisitorType }) {
   )
 }
 
-export default SignUpCustomer
+export default SignInRestaurant

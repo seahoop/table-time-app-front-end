@@ -4,7 +4,7 @@ import reservationData from './assets/reservations.js'
 import restaurantData from './assets/restaurants.js'
 import customerData from './assets/customers.js'
 import { Link, Route, Routes, useNavigate } from 'react-router-dom'
-import NavBar from './components/Bar/LandingNavBar.jsx'
+import NavBar from './components/Bar/NavBar.jsx'
 import FooterBar from './components/Bar/FooterBar.jsx'
 import Home from './components/Pages/Home.jsx'
 
@@ -21,10 +21,12 @@ import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx
 // Ismael Testing Imports
 // import { getUser, signout } from './services/customer.js'
 import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
-import SignIn from './components/Authorization/SignIn.jsx'
+import SignInCustomer from './components/Authorization/SignInCustomer.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
 import { showRestaurants } from './services/restaurant.js'
 import { getUser, getVisitorType, signout } from './services/auth.js'
+import SignUpRestaurant from './components/Authorization/SignUpRestaurant.jsx'
+import SignInRestaurant from './components/Authorization/SignInRestaurant.jsx'
 
 function App() {
   const [visitorType, setVisitorType] = useState(getVisitorType())
@@ -54,7 +56,7 @@ function App() {
       setRestaurants(restaurantData) // Reset to original data if query is empty
     }
   }
-  
+
   const handleSignOut = () => {
     signout()
     setVisitorType(getVisitorType())
@@ -63,7 +65,7 @@ function App() {
   }
   // helper functions end here
 
-  const handleUserAndVisitorType = ({user, visitorType}) => {
+  const handleUserAndVisitorType = ({ user, visitorType }) => {
     setUser(user)
     setVisitorType(visitorType)
   }
@@ -107,14 +109,16 @@ function App() {
           restaurants={restaurants}
           searchRestaurants={searchRestaurants}
         />} />
-        <Route path='/customers/signup' element={<SignUpCustomer />} />
-        <Route path='/signin' element={<SignIn handleUserAndVisitorType={handleUserAndVisitorType}/>} />
+        <Route path='/customers/signup' element={<SignUpCustomer handleUserAndVisitorType={handleUserAndVisitorType} />} />
+        <Route path='/customers/signin' element={<SignInCustomer handleUserAndVisitorType={handleUserAndVisitorType} />} />
+        <Route path='/restaurants/signup' element={<SignUpRestaurant handleUserAndVisitorType={handleUserAndVisitorType} />} />
+        <Route path='/restaurants/signin' element={<SignInRestaurant handleUserAndVisitorType={handleUserAndVisitorType} />} />
         <Route path='/customers/dashboard' element={<CustomerDashboard
           restaurants={restaurants}
           user={user}
           searchRestaurants={searchRestaurants} />} />
         {/* Do this with every restaurant and use fetch */}
-        {/* <Route path='/customers/restaurants/:restaurantId' element={<RestaurantDashboard />} /> */}
+        {/* <Route path='/customers/restaurants/:restaurantname' element={<RestaurantDashboard />} /> */}
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />

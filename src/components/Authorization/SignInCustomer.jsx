@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { customerSignIn } from "../../services/auth"
-import { getUser, getVisitorType } from "../../services/auth"
+import { customerSignIn, getVisitorType } from "../../services/auth"
 
-function SignIn({ handleUserAndVisitorType }) {
+function SignInCustomer({ handleUserAndVisitorType }) {
   const [formData, setFormData] = useState(
     {
       username: '',
@@ -53,4 +52,4 @@ function SignIn({ handleUserAndVisitorType }) {
   )
 }
 
-export default SignIn
+export default SignInCustomer
