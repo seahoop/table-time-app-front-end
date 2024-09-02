@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { customerSignIn } from "../../services/auth"
+import { useNavigate } from "react-router-dom"
+import { customerSignIn, getVisitorType } from "../../services/auth"
 
-function SignIn() {
+function SignInCustomer({ handleUserAndVisitorType }) {
   const [formData, setFormData] = useState(
     {
       username: '',
@@ -9,14 +10,18 @@ function SignIn() {
     }
   )
 
+  const navigate = useNavigate()
+
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
   const handleSignIn = async (event) => {
     event.preventDefault()
-    await customerSignIn(formData)
-    
+    const user = await customerSignIn(formData)
+    const visitorType = getVisitorType()
+    handleUserAndVisitorType({user, visitorType})
+    navigate('/')
   }
   return (
     <div>
@@ -47,4 +52,4 @@ function SignIn() {
   )
 }
 
-export default SignIn
+export default SignInCustomer

@@ -3,7 +3,7 @@ import './App.css'
 import reservationData from './assets/reservations.js'
 import restaurantData from './assets/restaurants.js'
 import customerData from './assets/customers.js'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes, useNavigate } from 'react-router-dom'
 import NavBar from './components/Bar/NavBar.jsx'
 import FooterBar from './components/Bar/FooterBar.jsx'
 import Home from './components/Pages/Home.jsx'
@@ -21,16 +21,19 @@ import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx
 // Ismael Testing Imports
 // import { getUser, signout } from './services/customer.js'
 import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
-import SignIn from './components/Authorization/SignIn.jsx'
+import SignInCustomer from './components/Authorization/SignInCustomer.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
 import { showRestaurants } from './services/restaurant.js'
-import { getUser, getVisitorType } from './services/auth.js'
+import { getUser, getVisitorType, signout } from './services/auth.js'
+import SignUpRestaurant from './components/Authorization/SignUpRestaurant.jsx'
+import SignInRestaurant from './components/Authorization/SignInRestaurant.jsx'
 
 function App() {
   const [visitorType, setVisitorType] = useState(getVisitorType())
   const [user, setUser] = useState(getUser())
   const [restaurants, setRestaurants] = useState([])
   const [reservations, setReservations] = useState(reservationData)
+  const navigate = useNavigate()
 
   useEffect(() => {
     // fetch all restaurants in database
@@ -53,11 +56,23 @@ function App() {
       setRestaurants(restaurantData) // Reset to original data if query is empty
     }
   }
+
+  const handleSignOut = () => {
+    signout()
+    setVisitorType(getVisitorType())
+    setUser(getUser())
+    navigate('/')
+  }
   // helper functions end here
 
+  const handleUserAndVisitorType = ({ user, visitorType }) => {
+    setUser(user)
+    setVisitorType(visitorType)
+  }
   // helper functions collected here in methods object
   const methods = {
     searchRestaurants,
+    handleSignOut
   }
 
   // Guests, Customers, and Restaurants ALL go to the Home component
@@ -87,20 +102,23 @@ function App() {
 
     // Ismael Testing
     <>
+      <NavBar methods={methods} />
       <Routes>
         <Route path='/' element={<LandingPage
           visitorType={visitorType}
           restaurants={restaurants}
           searchRestaurants={searchRestaurants}
         />} />
-        <Route path='/customers/signup' element={<SignUpCustomer />} />
-        <Route path='/signin' element={<SignIn />} />
+        <Route path='/customers/signup' element={<SignUpCustomer handleUserAndVisitorType={handleUserAndVisitorType} />} />
+        <Route path='/customers/signin' element={<SignInCustomer handleUserAndVisitorType={handleUserAndVisitorType} />} />
+        <Route path='/restaurants/signup' element={<SignUpRestaurant handleUserAndVisitorType={handleUserAndVisitorType} />} />
+        <Route path='/restaurants/signin' element={<SignInRestaurant handleUserAndVisitorType={handleUserAndVisitorType} />} />
         <Route path='/customers/dashboard' element={<CustomerDashboard
           restaurants={restaurants}
           user={user}
           searchRestaurants={searchRestaurants} />} />
-          {/* Do this with every restaurant and use fetch */}
-        {/* <Route path='/customers/restaurants/:restaurantId' element={<RestaurantDashboard />} /> */}
+        {/* Do this with every restaurant and use fetch */}
+        {/* <Route path='/customers/restaurants/:restaurantname' element={<RestaurantDashboard />} /> */}
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />

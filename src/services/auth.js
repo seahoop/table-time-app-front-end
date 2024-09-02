@@ -55,8 +55,9 @@ export const customerSignIn = async (formData) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
         })
-
+        
         const data = await handleResponse(response)
+        console.log(data)
         const customer = await storeTokenAndGetUser(data.token)
         localStorage.setItem('visitorType', 'customer')
         return customer

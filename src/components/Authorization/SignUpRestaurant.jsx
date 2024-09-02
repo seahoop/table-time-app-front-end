@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { customerSignUp, getVisitorType } from "../../services/auth"
+import { restaurantSignUp, getVisitorType } from "../../services/auth"
 import { useNavigate } from "react-router-dom"
 
-function SignUpCustomer({ handleUserAndVisitorType }) {
+function SignUpRestaurant({ handleUserAndVisitorType }) {
   const [formData, setFormData] = useState({
     username: '',
+    name: '',
     password: '',
     confirmPassword: ''
   })
@@ -21,7 +22,7 @@ function SignUpCustomer({ handleUserAndVisitorType }) {
       alert('Passwords do not match')
       return
     }
-    const user = await customerSignUp(formData)
+    const user = await restaurantSignUp(formData)
     const visitorType = getVisitorType()
     handleUserAndVisitorType({user, visitorType})
     navigate('/')
@@ -29,7 +30,7 @@ function SignUpCustomer({ handleUserAndVisitorType }) {
 
   return (
     <div>
-      <h2>Sign Up as a Customer!</h2>
+      <h2>Sign Up as a Restaurant!</h2>
       <form onSubmit={handleSignUp}>
         <div>
           <label htmlFor="username">Username:</label>
@@ -38,6 +39,15 @@ function SignUpCustomer({ handleUserAndVisitorType }) {
             value={formData.username}
             onChange={handleChange}
             required />
+        </div>
+        <div>
+          <label htmlFor="name">Restaurant Name:</label>
+          <input id="name" name="name"
+            type="text"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label htmlFor="password">Password:</label>
@@ -66,4 +76,4 @@ function SignUpCustomer({ handleUserAndVisitorType }) {
   )
 }
 
-export default SignUpCustomer
+export default SignUpRestaurant
