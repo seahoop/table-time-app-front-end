@@ -24,24 +24,31 @@ import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
 import SignInCustomer from './components/Authorization/SignInCustomer.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
 import { showRestaurants } from './services/restaurant.js'
+import { getRestaurantPage } from './services/customer.js'
 import { getUser, getVisitorType, signout } from './services/auth.js'
 import SignUpRestaurant from './components/Authorization/SignUpRestaurant.jsx'
 import SignInRestaurant from './components/Authorization/SignInRestaurant.jsx'
+import Restaurant from './components/Customer/Restaurant.jsx'
 
 function App() {
   const [visitorType, setVisitorType] = useState(getVisitorType())
   const [user, setUser] = useState(getUser())
   const [restaurants, setRestaurants] = useState([])
-  const [reservations, setReservations] = useState(reservationData)
+  const [restaurantToView, setRestaurantToView] = useState(null)
+
   const navigate = useNavigate()
 
   useEffect(() => {
     // fetch all restaurants in database
     // maybe do this in landing page instead
     showRestaurants()
-      .then((allRestaurants) => setRestaurants(allRestaurants))
+      .then((allRestaurants) => {
+        setRestaurants(allRestaurants)
+        const random = Math.floor(Math.random(allRestaurants.length) + 1)
+        setRestaurantToView(allRestaurants[random])
+      })
 
-  }, [visitorType, user])
+  }, [visitorType, user, restaurantToView])
 
 
   // helper functions start here
@@ -72,7 +79,8 @@ function App() {
   // helper functions collected here in methods object
   const methods = {
     searchRestaurants,
-    handleSignOut
+    handleSignOut,
+    setRestaurantToView
   }
 
   // Guests, Customers, and Restaurants ALL go to the Home component
@@ -113,12 +121,13 @@ function App() {
         <Route path='/customers/signin' element={<SignInCustomer handleUserAndVisitorType={handleUserAndVisitorType} />} />
         <Route path='/restaurants/signup' element={<SignUpRestaurant handleUserAndVisitorType={handleUserAndVisitorType} />} />
         <Route path='/restaurants/signin' element={<SignInRestaurant handleUserAndVisitorType={handleUserAndVisitorType} />} />
-        <Route path='/customers/dashboard' element={<CustomerDashboard
-          restaurants={restaurants}
-          user={user}
-          searchRestaurants={searchRestaurants} />} />
-        {/* Do this with every restaurant and use fetch */}
-        {/* <Route path='/customers/restaurants/:restaurantname' element={<RestaurantDashboard />} /> */}
+        <Route path='/customers/dashboard' element={
+          <CustomerDashboard
+            restaurants={restaurants}
+            user={user}
+            methods={methods} />}
+        />
+        <Route path='/customers/restaurants/:restaurantName' element={<Restaurant restaurant={restaurantToView} />} />
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />
