@@ -6,12 +6,20 @@ import { useEffect, useState } from 'react';
 
 function Restaurant({ restaurant }) {
     const [selectedDay, setSelectedDay] = useState(null)
+    const [selectedDate, setSelectedDate] = useState(null)
 
     const handleDayClick = (day) => {
         setSelectedDay(day)
+
+        const today = new Date()
+        const firstDay = today.getDate() - today.getDay()
+        const selectedDayDate = new Date(today.setDate(firstDay) + day)
+        setSelectedDate(selectedDayDate)
     }
 
-    const filteredReservations = selectedDay ? restaurant.reservations.filter((reservation) => {
+
+
+    const filteredReservations = selectedDay !== null ? restaurant.reservations.filter((reservation) => {
         return new Date(reservation.date).getDay() === selectedDay
     }) : restaurant.reservations
 
