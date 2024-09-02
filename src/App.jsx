@@ -23,7 +23,7 @@ import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx
 import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
 import SignInCustomer from './components/Authorization/SignInCustomer.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
-import { showRestaurants } from './services/restaurant.js'
+import { showRestaurants, showARestaurant } from './services/restaurant.js'
 import { getRestaurantPage } from './services/customer.js'
 import { getUser, getVisitorType, signout } from './services/auth.js'
 import SignUpRestaurant from './components/Authorization/SignUpRestaurant.jsx'
@@ -34,33 +34,29 @@ function App() {
   const [visitorType, setVisitorType] = useState(getVisitorType())
   const [user, setUser] = useState(getUser())
   const [restaurants, setRestaurants] = useState([])
-  const [restaurantToView, setRestaurantToView] = useState(null)
+  const [restaurantToView, setRestaurantToView] = useState({})
 
   const navigate = useNavigate()
 
   useEffect(() => {
-    // fetch all restaurants in database
-    // maybe do this in landing page instead
-    showRestaurants()
-      .then((allRestaurants) => {
-        setRestaurants(allRestaurants)
-        const random = Math.floor(Math.random(allRestaurants.length) + 1)
-        setRestaurantToView(allRestaurants[random])
-      })
-
-  }, [visitorType, user, restaurantToView])
+    const fetchData = async () => {
+      const allRestaurants = await showRestaurants()
+      setRestaurants(allRestaurants)
+      const random = Math.floor(Math.random(allRestaurants.length))
+      setRestaurantToView(allRestaurants[random])
+    }
+    fetchData()
+  }, [])
 
 
   // helper functions start here
-
-  // Function to handle search
   const searchRestaurants = (query) => {
     if (query) {
       const filteredRestaurants = restaurantData.filter(restaurant =>
         restaurant.name.toLowerCase().includes(query.toLowerCase()))
       setRestaurants(filteredRestaurants)
     } else {
-      setRestaurants(restaurantData) // Reset to original data if query is empty
+      setRestaurants(restaurantData)
     }
   }
 
@@ -70,17 +66,29 @@ function App() {
     setUser(getUser())
     navigate('/')
   }
-  // helper functions end here
 
   const handleUserAndVisitorType = ({ user, visitorType }) => {
     setUser(user)
     setVisitorType(visitorType)
   }
+
+  const getRestaurantDetailsToView = async (restaurant) => {
+    setRestaurantToView(restaurant)
+    let restaurantWithDetails
+    if (user) {
+      restaurantWithDetails = await getRestaurantPage({ userId: user._id, restaurantId: restaurantToView._id })
+    } else {
+      restaurantWithDetails = await showARestaurant({ restaurantId: restaurantToView._id })
+    }
+    setRestaurantToView(restaurantWithDetails)
+  }
+
   // helper functions collected here in methods object
   const methods = {
     searchRestaurants,
     handleSignOut,
-    setRestaurantToView
+    setRestaurantToView,
+    getRestaurantDetailsToView
   }
 
   // Guests, Customers, and Restaurants ALL go to the Home component
@@ -115,7 +123,7 @@ function App() {
         <Route path='/' element={<LandingPage
           visitorType={visitorType}
           restaurants={restaurants}
-          searchRestaurants={searchRestaurants}
+          methods={methods}
         />} />
         <Route path='/customers/signup' element={<SignUpCustomer handleUserAndVisitorType={handleUserAndVisitorType} />} />
         <Route path='/customers/signin' element={<SignInCustomer handleUserAndVisitorType={handleUserAndVisitorType} />} />

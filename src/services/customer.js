@@ -8,7 +8,7 @@ const handleResponse = async (response) => {
     return json
 }
 
-export const getRestaurantPage = async (userId, restaurantId) => {
+export const getRestaurantPage = async ({ userId, restaurantId }) => {
     const response = await fetch(`${BASE_URL}/customers/${userId}/restaurants/${restaurantId}`)
     const restaurant = await handleResponse(response)
     return restaurant
