@@ -10,10 +10,12 @@ export const showRestaurants = async () => {
         }
         return allRestaurants
     } catch (error) {
-        
+
     }
 }
 
-export const showMyRestaurant = async () => {
-    
+export const showARestaurant = async ({ restaurantId }) => {
+    const response = await fetch(`${BASE_URL}/restaurants/${restaurantId}`)
+    const restaurantToView = await response.json()
+    return restaurantToView
 }

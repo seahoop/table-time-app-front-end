@@ -1,13 +1,13 @@
 import RestaurantCard from "./RestaurantCard"
 import { useNavigate } from "react-router-dom"
-import ("./RestaurantList.css")
+import "./RestaurantList.css"
 
 function RestaurantList(props) {
   const { restaurants, methods } = props
   const navigate = useNavigate()
 
-  const handleClick = (restaurant) => {
-    methods.setRestaurantToView(restaurant)
+  const handleClick = async (restaurant) => {
+    await methods.getRestaurantDetailsToView(restaurant)
     navigate(`/customers/restaurants/${restaurant.name}`)
   }
 
