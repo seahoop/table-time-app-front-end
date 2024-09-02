@@ -4,6 +4,7 @@ import "./TimeSlotList.css"
 function TimeSlotList(props) {
   const { reservations } = props;
   const timeSlots = [...reservations ]
+  
   function convertTo12Hour(time24) {
     const [hours, minutes] = time24.split(':').map(Number);
     const amPm = hours >= 12 ? 'PM' : 'AM';

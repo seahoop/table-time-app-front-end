@@ -4,7 +4,7 @@ import ReservationList from './ReservationList.jsx'
 import SearchBar from "./SearchBar.jsx"
 
 function CustomerDashboard(props) {
-  const { restaurants, user, searchRestaurants } = props
+  const { restaurants, user, methods } = props
   const [customer, setCustomer] = useState(user)
 
   return (
@@ -12,19 +12,19 @@ function CustomerDashboard(props) {
       <h2>Welcome, {user.username}!</h2>
       <main>
         <section>
-          <SearchBar searchRestaurants={searchRestaurants} />
-          <RestaurantList restaurants={restaurants} />
+          <SearchBar searchRestaurants={methods.searchRestaurants} />
+          <RestaurantList restaurants={restaurants} methods={methods} />
         </section>
         <aside>
-        {user.myReservations ?
-          <>
-            <h1>My Reservations</h1>
-            <ReservationList reservations={customer.myReservations} setCustomer={setCustomer} />
-          </> :
-          <>
-          <h2>Make your first reservation!</h2>
-          </>
-        }
+          {user.myReservations ?
+            <>
+              <h1>My Reservations</h1>
+              <ReservationList reservations={customer.myReservations} setCustomer={setCustomer} />
+            </> :
+            <>
+              <h2>Make your first reservation!</h2>
+            </>
+          }
         </aside>
       </main>
     </>
