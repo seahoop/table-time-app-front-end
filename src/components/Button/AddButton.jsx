@@ -1,6 +1,6 @@
-function AddButton() {
+function AddButton({ onClickAdd }) {
   return (
-    <div>AddButton</div>
+    <button onClick={onClickAdd}>Make Reservation</button>
   )
 }
 

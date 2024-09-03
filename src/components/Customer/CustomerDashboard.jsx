@@ -1,38 +1,64 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import RestaurantList from "./RestaurantList.jsx"
 import ReservationList from './ReservationList.jsx'
 import SearchBar from "./SearchBar.jsx"
+import { editReservation, cancelReservation } from "../../services/customer.js"
+import { useNavigate } from "react-router-dom"
 
-function CustomerDashboard(props) {
-  const { restaurants, user, searchRestaurants } = props
-  const [customer, setCustomer] = useState(user)
+function CustomerDashboard({ restaurants, user, methods }) {
 
-  const editReservation = async ({ customerWithEditedReservation }) => {
-    setCustomer(customerWithEditedReservation)
+  const navigate = useNavigate()
+
+  const editCustomerReservation = async (reservationId, formdata) => {
+    if (user) {
+      const customerWithReservationEdits = await editReservation(user._id, reservationId, formdata)
+      console.log(customerWithReservationEdits)
+      methods.setUser(customerWithReservationEdits)
+    }
+    navigate('/customers/dashboard')
   }
 
-  const deleteReservation = async ({customerWithDeletedReservation}) => {
-    setCustomer(customerWithDeletedReservation)
+  const cancelCustomerReservation = async (reservationId) => {
+    if (user) {
+      const customerWithCanceledReservation = await cancelReservation(user._id, reservationId)
+      console.log(customerWithCanceledReservation)
+      methods.setUser(customerWithCanceledReservation)
+    }
+    navigate('/customers/dashboard')
   }
 
-  const helpers = {
-    editReservation,
-    deleteReservation
+  const customerMethods = {
+    ...methods,
+    editCustomerReservation,
+    cancelCustomerReservation,
   }
 
   return (
     <>
-      <h2>Welcome user!</h2>
-      <main>
-        <section>
-          <SearchBar searchRestaurants={searchRestaurants} />
-          <RestaurantList restaurants={restaurants} />
-        </section>
-        <aside>
-          <h1>My Reservations</h1>
-          <ReservationList reservations={customer.myReservations} helpers={helpers}/>
-        </aside>
-      </main>
+      {user ? (
+        <>
+          <h2>Welcome, {user.username}!</h2>
+          <main>
+            <section>
+              <SearchBar searchRestaurants={methods.searchRestaurants} />
+              <RestaurantList restaurants={restaurants} methods={methods} />
+            </section>
+            <aside>
+              {user.myReservations ?
+                <>
+                  <h1>My Reservations</h1>
+                  <ReservationList reservations={user.myReservations} customerMethods={customerMethods} />
+                </> :
+                <>
+                  <h2>Make your first reservation!</h2>
+                </>
+              }
+            </aside>
+          </main>
+        </>
+      ) : (
+        <p>Loading Customer Dashboard...</p>
+      )}
     </>
   )
 }

@@ -1,4 +1,5 @@
 import RestaurantImage from './RestaurantImage';
+import "./RestaurantDetails.css"
 
 function RestaurantDetails(props) {
   const { about, address, image } = props;

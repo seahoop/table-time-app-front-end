@@ -1,0 +1,29 @@
+.time-slot-list {
+    display: flex;
+    flex-direction: row; /* Arrange items horizontally */
+    justify-content: center; /* Align items to the start */
+    align-items: center; /* Align items vertically in the center */
+    padding: 10px;
+    flex-wrap: wrap; /* Allow wrapping to the next line if necessary */
+    gap: 5px; /* Reduce space between the time slot cards */
+  }
+  
+  .time-slot-card {
+    background-color: #f5f5f5; /* Light gray background */
+    border: 2px solid #ccc; /* Border color */
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 1em; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Dark gray text color */
+    text-align: center; /* Centered text */
+    width: 100px; /* Fixed width for uniform size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .time-slot-card:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+    border-color: #999; /* Darker border on hover */
+  }
+  

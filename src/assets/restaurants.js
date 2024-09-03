@@ -5,7 +5,30 @@ export const restaurantData = [
         name: "Bella Italia",
         about: "An authentic Italian restaurant serving traditional dishes made from fresh, locally sourced ingredients.",
         address: "123 Rome Street, New York, NY 10001",
-        image: "https://www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg"
+        image: "https://www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg", 
+        reservations: [
+            {
+                guests: 4,
+                date: '2024-09-01',
+                time: '18:30',
+                location: 'McDonalds',
+                isAvailable: true
+              },
+              {
+                guests: 2,
+                date: '2024-09-02',
+                time: '19:00',
+                location: 'McDonalds',
+                isAvailable: true
+              },
+              {
+                guests: 6,
+                date: '2024-09-03',
+                time: '20:00',
+                location: 'McDonalds',
+                isAvailable: false
+              }
+        ]
     },
     {
         username: "sushiMaster",

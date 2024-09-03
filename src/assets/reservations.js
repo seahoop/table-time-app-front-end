@@ -4,7 +4,8 @@ const reservationData = [
       date: '2024-09-01',
       time: '18:30',
       location: 'McDonalds',
-      isAvailable: true
+      isAvailable: true,
+    
     },
     {
       guests: 2,
