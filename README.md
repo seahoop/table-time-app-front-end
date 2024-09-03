@@ -20,7 +20,7 @@ The Table-Time-App is a MERN stack application designed to simplify the process 
 
 
 ## Component Hierachy
-![Hierachy-Diagram](./src/assets/ReadMe-Imgs/Screenshot%202024-08-31%20at%205.03.31 PM.png)
+![Hierachy-Diagram](./src/assets/ReadMe-Imgs/Screenshot%202024-09-03%20at%2011.57.44 AM.png)
 
 
 
