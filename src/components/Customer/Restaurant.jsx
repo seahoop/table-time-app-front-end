@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { makeReservation } from '../../services/customer'
 import { useNavigate } from 'react-router-dom';
 
-function Restaurant({ restaurant, user }) {
+function Restaurant({ restaurant, user, methods }) {
     const [selectedDay, setSelectedDay] = useState(null)
 
     const navigate = useNavigate()
@@ -17,7 +17,8 @@ function Restaurant({ restaurant, user }) {
 
     const handleAddReservation = async (reservationId) => {
         if (user) {
-            await makeReservation(user._id, restaurant._id, reservationId)
+            const customer = await makeReservation(user._id, restaurant._id, reservationId)
+            methods.setUser(customer)
         }
         navigate('/customers/dashboard')
     }
