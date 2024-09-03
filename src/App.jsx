@@ -13,13 +13,17 @@ import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
 import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
 
 // Eric Testing Imports
-// import LandingPage from './components/admin/landingPage.jsx'
-// import SignUp from './components/admin/signUp.jsx'
-// import SignIn from './components/admin/signIn.jsx'
-// import AdminPanel from './components/admin/adminPanel.jsx'
+import LandingPage from './components/admin/landingPage.jsx';
+import SignUp from './components/admin/signUp.jsx'
+import SignIn from './components/admin/signIn.jsx'
+import AdminPanel from './components/admin/adminPanel.jsx'
+import RestaurantDatabase from './components/admin/restaurantData.jsx'
+import CustomerDatabase from './components/admin/customerData.jsx'
+import CustomerUserProfile from './components/admin/customerUserProfile.jsx';
+import RestaurantUserProfile from './components/admin/restaurantUserProfile.jsx';
+
 
 // Ismael Testing Imports
-// import { getUser, signout } from './services/customer.js'
 import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
 import SignInCustomer from './components/Authorization/SignInCustomer.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
@@ -150,10 +154,18 @@ function App() {
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />
+        <Route path="/admin" exact element={<LandingPage />} />
+        <Route path="/admin/signUp" element={<SignUp />} />
+        <Route path="/admin/signIn" element={<SignIn />} />
+        <Route path="/admin/adminPanel" element={<AdminPanel />} />
+        <Route path="/admin/adminPanel/customerDataBase" element={<CustomerDatabase />} />
+        <Route path="/admin/adminPanel/restaurantDataBase" element={<RestaurantDatabase />} />
+        <Route path="/admin/adminPanel/customerProfile/:username" element={<CustomerUserProfile />} />
+        <Route path="/admin/adminPanel/restaurantProfile/:username" element={<RestaurantUserProfile/>}/>
       </Routes>
     </>
+    
   )
 }
-
 
 export default App
