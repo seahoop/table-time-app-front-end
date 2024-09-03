@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import customerData from '../../assets/customers';
+import '../../../src/admin.css';
 
 const CustomerUserProfile = () => {
     const { username } = useParams();
@@ -17,11 +18,11 @@ const CustomerUserProfile = () => {
 
     return (
         <>
-        <section id="CustomerProfile">
+        <section className="CustomerProfile">
         <h1>Customer Profile: {customer.username}</h1>
         </section>
 
-        <section id="CustomerData">
+        <section className="CustomerData">
         <div>
            
             <p>Password: {customer.password}</p>
@@ -37,7 +38,7 @@ const CustomerUserProfile = () => {
         </div>
         </section>
 
-        <section id="backButton">
+        <section className="backButton">
             <button onClick={handleBackClick}>Back to Customer Database</button>
         </section>
         </>

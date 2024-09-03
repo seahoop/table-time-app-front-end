@@ -7,27 +7,27 @@ const LandingPage = () => {
   return (
     
     <>
-        <section id ="landingPage">
+        <section className ="landingPage">
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <section id ="title">
+            <section className ="title">
             <h1>Table Time</h1>
 
             </section>
 
-        <section id ="welcome1">
+        <section className ="welcome1">
         <h1>Welcome to Table Time Central Management System</h1>
         </section>
 
 
         {/*sign up button below   */}
-        <section id ="adminSignUp">
+        <section className ="adminSignUp">
         <Link to ="/admin/signUp">
         <button className="sign-up">Admin Sign up</button>
         </Link>
         </section>
 
             {/*Admin Sign in button */}
-        <section id ="adminSignIn">
+        <section className ="adminSignIn">
         <Link to ="/admin/signIn">
         <button className="sign-in">Admin Sign in</button>
         </Link>

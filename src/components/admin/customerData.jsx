@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import customerData from '../../assets/customers';
+import '../../../src/admin.css';
+
 
 const CustomerDatabase = () => {
     const [query, setQuery] = useState('');
@@ -37,15 +39,15 @@ const CustomerDatabase = () => {
 
     return (
         <>
-            <section id="title">
+            <section className="title">
                 <h1>Table Time</h1>
             </section>
 
-            <section id="welcome-Title">
+            <section className="welcome-Title">
                 <h2>Welcome to Table Time Customer Database</h2>
             </section>
 
-            <section id="search">
+            <section className="search">
                 <input 
                     type="text" 
                     placeholder="Search customers..." 
@@ -54,7 +56,7 @@ const CustomerDatabase = () => {
                 />
             </section>
 
-            <section id="customerList">
+            <section className="customerList">
                 <ul>
                     {customers.map(customer => (
                         <li key={customer.username}>
@@ -66,7 +68,7 @@ const CustomerDatabase = () => {
                 </ul>
             </section>
 
-            <section id="backToAdminPanel">
+            <section className="backToAdminPanel">
                 <button onClick={handleBackClick} >
                     Back To Admin Panel
                 </button>

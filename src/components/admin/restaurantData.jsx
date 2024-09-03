@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import restaurantData from '../../assets/restaurants';
+import '../../../src/admin.css';
 
 const RestaurantDatabase = () => {
     const [query, setQuery] = useState('');
@@ -37,15 +38,15 @@ const RestaurantDatabase = () => {
 
     return (
         <>
-            <section id="title">
+            <section className="title">
                 <h1>Table Time</h1>
             </section>
 
-            <section id="welcome-Title">
+            <section className="welcome-Title">
                 <h2>Welcome to Table Time Restaurant Database</h2>
             </section>
 
-            <section id="search">
+            <section className="search">
                 <input 
                     type="text" 
                     placeholder="Search restaurants..." 
@@ -54,7 +55,7 @@ const RestaurantDatabase = () => {
                 />
             </section>
 
-            <section id="restaurantList">
+            <section className="restaurantList">
                 <ul>
                     {restaurants.map(restaurant => (
                         <li key={restaurant.username}>
@@ -66,7 +67,7 @@ const RestaurantDatabase = () => {
                 </ul>
             </section>
 
-            <section id="backToAdminPanel">
+            <section className="backToAdminPanel">
                 <button onClick={handleBackClick} >
                     Back To Admin Panel
                 </button>

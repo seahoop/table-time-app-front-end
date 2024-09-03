@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import '/src/admin.css';
+import '../../../src/admin.css';
 import welcomeAudio from '../../assets/adminMusic/welcomeAudio.mp3';
 
 const AdminPanel = () => {
@@ -30,27 +30,27 @@ const AdminPanel = () => {
     return (
         <>
 
-            <section id="title">
+            <section className="title">
                 <h1>Table Time</h1>
             </section>
 
-            <section id="welcome">
+            <section className="welcome">
                 <h1>Welcome to Table Time Management Panel</h1>
             </section>
 
-            <section id="RestaurantDataBase">
+            <section className="RestaurantDataBase">
                 <button onClick={handleRestaurantData} className="Restaurant-Data-Base">
                     Restaurant Database
                 </button>
             </section>
 
-            <section id="CustomerDataBase">
+            <section className="CustomerDataBase">
                 <button onClick={handleCustomerData} className="Customer-Data-Base">
                     Customer Database
                 </button>
             </section>
 
-            <section id="backButton">
+            <section className="backButton">
                 <button onClick={handleBackClick} className="back-button">
                     Sign Out
                 </button>

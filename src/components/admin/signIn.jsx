@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import audio1 from '../../assets/adminMusic/youtubeAudio.mp3';
+import '../../../src/admin.css';
 
 const SignIn = () => {
     const navigate = useNavigate();
@@ -58,15 +59,15 @@ const SignIn = () => {
 
     return (
         <>
-            <section id="title">
+            <section className="title">
                 <h1>Table Time</h1>
             </section>
 
-            <section id="SignIn-Welcome">
+            <section className="SignIn-Welcome">
                 <h1>Admin Sign In System</h1>
             </section>
 
-            <section id="signInForm">
+            <section className="signInForm">
                 <form onSubmit={handleSignIn}>
                     <div>
                         <label>Username</label>
@@ -91,7 +92,7 @@ const SignIn = () => {
                 {error && <p style={{ color: 'red' }}>{error}</p>}
             </section>
 
-            <section id="backButton">
+            <section className="backButton">
                 <button onClick={handleBackClick} className="back-button">
                     Back
                 </button>

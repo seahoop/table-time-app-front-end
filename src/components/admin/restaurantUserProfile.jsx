@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import restaurantData from '../../assets/restaurants';
+import '../../../src/admin.css';
 
 const RestaurantUserProfile = () => {
     const { username } = useParams();
@@ -17,23 +18,23 @@ const RestaurantUserProfile = () => {
 
     return (
         <>
-        <section id="restaurantName">
+        <section className="restaurantName">
         <h1>Restaurant Profile: {restaurant.name}</h1>
         </section>
         
-        <section id="profiles">
+        <section className="profiles">
         <div>
             
             <p>Username: {restaurant.username}</p>
             <p>Password: {restaurant.password}</p>
             <p>About: {restaurant.about}</p>
             <p>Address: {restaurant.address}</p>
-            <img src={restaurant.image} alt={restaurant.name} style={{width: '300px', height: '200px'}} />
+            <img src={restaurant.image} alt={restaurant.name} style={{wclassNameth: '300px', height: '200px'}} />
           
         </div>
         </section>
 
-        <section id="backButton">
+        <section className="backButton">
               <button onClick={handleBackClick}>Back to Restaurant Database</button>
         </section>
 

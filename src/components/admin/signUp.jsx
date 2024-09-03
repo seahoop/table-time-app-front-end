@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../../src/admin.css';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ const SignUp = () => {
         }
 
         if (initiationCode !== 'tabletime123') {
-            setError("Invalid initiation code.");
+            setError("InvalclassName initiation code.");
             return;
         }
 
@@ -56,17 +57,17 @@ const SignUp = () => {
 
     return (
         <>
-            <section id="title">
+            <section className="title">
                 <h1>Table Time</h1>
             </section>
 
-            <section id="signUp-Welcome">
+            <section className="signUp-Welcome">
                 <h1>New Admin Registration System</h1>
             </section>
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
-            <section id="signUp-functions">
+            <section className="signUp-functions">
             <form onSubmit={handleSignUp}>
                 <div>
                     <label>Username:</label>
@@ -118,11 +119,11 @@ const SignUp = () => {
             </form>
             </section>
 
-            <section id="signUpButton">
+            <section className="signUpButton">
             <button type="submit" className="sign-up-button">Sign Up</button>
             </section>
 
-            <section id="backButton">
+            <section className="backButton">
                 
                 <button onClick={handleBackClick} className="back-button">
                     Back

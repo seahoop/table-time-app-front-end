@@ -32,7 +32,7 @@ body::before {
     z-index: -1; /* Ensure the background is behind the content */
 }
 /* LandingPage-----------------------------------------START*/
-#welcome1{
+.welcome1{
     font-size: 0.9rem;
     font-style: italic;
     position: absolute;
@@ -41,7 +41,7 @@ body::before {
     transform: translateX(-60px);
 }
 
-#title {
+.title {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,19 +54,19 @@ body::before {
 
 
 /* adminSignUp-----------------------------------------START*/
-#adminSignUp{
+.adminSignUp{
     font-size: 5rem;
     margin-bottom: 80px;
    
 }
 
-#adminSignIn{
+.adminSignIn{
     font-size: 5.2rem;
     font-weight: bold;
     font-style: italic;
 }
 
-#signUp-Welcome{
+.signUp-Welcome{
     font-size: 0.9rem;
     position: absolute;
     top:0;
@@ -75,18 +75,18 @@ body::before {
     font-style: italic;
 }
 
-#signUp-functions{
+.signUp-functions{
     font-size: 4rem;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 10px;
 
 }
-#signUpButton{
+.signUpButton{
     font-size: 3rem;
 }
 
-#backButton{
+.backButton{
     position: absolute;
     bottom: 0;
     right: 0;
@@ -96,21 +96,21 @@ body::before {
 
 
 /* adminSignIn-----------------------------------------START*/
-#SignIn-Welcome{
+.SignIn-Welcome{
     position: absolute;
     top: 0;
     right: 0;
     transform: translateX(-150px);
 }
 
-#signInForm {
+.signInForm {
     font-size: 4rem;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 50px;
 }
 
-#signIn-button{
+.signIn-button{
     font-size: 3rem;
 }
 
@@ -120,7 +120,7 @@ body::before {
 /* adminSignUp-----------------------------------------END*/
 
 /* adminPanel-----------------------------------------START*/
-#welcome{
+.welcome{
     position: absolute;
     top: 0;
     right: 0;
@@ -129,14 +129,14 @@ body::before {
     font-weight: bold;
 }
 
-#RestaurantDataBase{
+.RestaurantDataBase{
     font-size: 4rem;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 50px;
 }
 
-#CustomerDataBase{
+.CustomerDataBase{
     font-size: 4.2rem;
     font-style: italic;
     font-weight: bold;
@@ -145,7 +145,7 @@ body::before {
 /* adminPanel-----------------------------------------END*/
 
 /* adminPanel/DatabseRestaurant-----------------------------------------START*/
-#welcome-Title{
+.welcome-Title{
     font-size: 2rem;
     font-style: italic;
     font-weight: bold;
@@ -156,19 +156,19 @@ body::before {
     
 }
 
-#backToAdminPanel{
+.backToAdminPanel{
     position: absolute;
     bottom: 0;
     right: 0;
     font-size: 3rem;
 }
 
-#search{
+.search{
     height: 100px;
     
 }
 
-#restaurantList{
+.restaurantList{
     font-size: 1.4rem;
 }
 
@@ -176,7 +176,7 @@ body::before {
 
 
 /* adminPanel/DatabseCustomer-----------------------------------------START*/
-#customerList{
+.customerList{
     font-size: 1.4rem;
 }
 
@@ -184,27 +184,27 @@ body::before {
 
 
 /* adminPanel/DatabseRestaurant/profile-----------------------------------------START*/
-#profiles{
+.profiles{
     font-size: 2rem;
     font-style: italic;
     font-weight: bold;
 }
 
-#restaurantName{
+.restaurantName{
     font-size: 2rem;
     margin-bottom: 50px;
     
 }
 
 /* adminPanel/DatabseCustomer/profile-----------------------------------------END*/
-#CustomerProfile{
+.CustomerProfile{
     font-size: 2rem;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 50px;
 }
 
-#CustomerData{
+.CustomerData{
     font-size: 2rem;
     
 }
