@@ -31,7 +31,7 @@ export const makeReservation = async (userId, restaurantId, reservationId) => {
 }
 
 export const editReservation = async (userId, reservationId, formData) => {
-    const response = await fetch(`${BASE_URL}/customers/${userId}/reservations/${reservationId}`, {
+    const response = await fetch(`${BASE_URL}/customers/${userId}/reservations/${reservationId}/edit`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)

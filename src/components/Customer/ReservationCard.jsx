@@ -30,7 +30,6 @@ function ReservationCard({ reservation, customerMethods }) {
 
   const handleSubmitChanges = () => {
     const customer = customerMethods.editCustomerReservation(_id, formData)
-    console.log(customer)
     customerMethods.setUser(customer)
     setIsEditing(false)
   }
