@@ -24,7 +24,7 @@ import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
 import SignInCustomer from './components/Authorization/SignInCustomer.jsx'
 import LandingPage from './components/Pages/LandingPage.jsx'
 import { showRestaurants, showARestaurant } from './services/restaurant.js'
-import { getRestaurantPage } from './services/customer.js'
+import { getRestaurantPage, showCustomer } from './services/customer.js'
 import { getUser, getVisitorType, signout } from './services/auth.js'
 import SignUpRestaurant from './components/Authorization/SignUpRestaurant.jsx'
 import SignInRestaurant from './components/Authorization/SignInRestaurant.jsx'
@@ -32,22 +32,29 @@ import Restaurant from './components/Customer/Restaurant.jsx'
 
 function App() {
   const [visitorType, setVisitorType] = useState(getVisitorType())
-  const [user, setUser] = useState(getUser())
+  const [user, setUser] = useState(null)
   const [restaurants, setRestaurants] = useState([])
-  const [restaurantToView, setRestaurantToView] = useState({})
+  const [restaurantToView, setRestaurantToView] = useState(null)
 
   const navigate = useNavigate()
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchRestaurantData = async () => {
       const allRestaurants = await showRestaurants()
       setRestaurants(allRestaurants)
       const random = Math.floor(Math.random(allRestaurants.length))
       setRestaurantToView(allRestaurants[random])
     }
-    fetchData()
+    fetchRestaurantData()
   }, [])
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const customer = getUser()
+      setUser(customer)
+    }
+    fetchUserData()
+  }, [])
 
   // helper functions start here
   const searchRestaurants = (query) => {
@@ -67,7 +74,7 @@ function App() {
     navigate('/')
   }
 
-  const handleUserAndVisitorType = ({ user, visitorType }) => {
+  const handleUserAndVisitorType = (user, visitorType) => {
     setUser(user)
     setVisitorType(visitorType)
   }
@@ -90,6 +97,7 @@ function App() {
     setRestaurantToView,
     getRestaurantDetailsToView,
     setUser,
+    showCustomer
   }
 
   // Guests, Customers, and Restaurants ALL go to the Home component
@@ -133,10 +141,12 @@ function App() {
         <Route path='/customers/dashboard' element={
           <CustomerDashboard
             restaurants={restaurants}
-            user={user}
+            user={user ? user : null}
             methods={methods} />}
         />
-        <Route path='/customers/restaurants/:restaurantName' element={<Restaurant restaurant={restaurantToView} user={user} methods={methods}/>} />
+        <Route path='/customers/restaurants/:restaurantName' element={
+          <Restaurant restaurant={restaurantToView} user={user ? user : null} methods={methods} />
+        } />
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />

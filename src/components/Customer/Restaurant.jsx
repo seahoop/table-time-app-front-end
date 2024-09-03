@@ -17,8 +17,9 @@ function Restaurant({ restaurant, user, methods }) {
 
     const handleAddReservation = async (reservationId) => {
         if (user) {
-            const customer = await makeReservation(user._id, restaurant._id, reservationId)
-            methods.setUser(customer)
+            const thisCustomer = await makeReservation(user._id, restaurant._id, reservationId)
+            console.log(thisCustomer)
+            methods.setUser(thisCustomer)
         }
         navigate('/customers/dashboard')
     }

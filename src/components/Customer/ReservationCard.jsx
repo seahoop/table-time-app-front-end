@@ -28,8 +28,15 @@ function ReservationCard({ reservation, customerMethods }) {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
-  const handleSubmitChanges = async () => {
-    const customer = await customerMethods.editCustomerReservation(_id, formData)
+  const handleSubmitChanges = () => {
+    const customer = customerMethods.editCustomerReservation(_id, formData)
+    console.log(customer)
+    customerMethods.setUser(customer)
+    setIsEditing(false)
+  }
+
+  const handleCancelReservation = () => {
+    const customer = customerMethods.cancelCustomerReservation(_id)
     customerMethods.setUser(customer)
   }
 
@@ -45,9 +52,9 @@ function ReservationCard({ reservation, customerMethods }) {
         {!isEditing ? (
           <>
             <p>{guests}</p>
-            <p>
+            <div>
               <p>{day}</p><p>{mmdd}</p>
-            </p>
+            </div>
             <p>{time}</p>
           </>
         ) : (
@@ -91,7 +98,7 @@ function ReservationCard({ reservation, customerMethods }) {
       {!isEditing ? (
         <div>
           <EditReservationButton onClickEdit={handleEditClick} />
-          <CancelReservationButton onClickCancel={handleCancelChanges} />
+          <CancelReservationButton onClickCancel={handleCancelReservation} />
         </div>
       ) : <></>
       }
