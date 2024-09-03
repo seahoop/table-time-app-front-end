@@ -1,19 +1,15 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import reservationData from './assets/reservations.js'
 import restaurantData from './assets/restaurants.js'
-import customerData from './assets/customers.js'
-import { Link, Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import NavBar from './components/Bar/NavBar.jsx'
-import FooterBar from './components/Bar/FooterBar.jsx'
-import Home from './components/Pages/Home.jsx'
 
 // Rodney Testing Imports
 import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
 import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
 
 // Eric Testing Imports
-import LandingPage from './components/admin/landingPage.jsx';
+import LandingAdminPage from './components/admin/landingPage.jsx';
 import SignUp from './components/admin/signUp.jsx'
 import SignIn from './components/admin/signIn.jsx'
 import AdminPanel from './components/admin/adminPanel.jsx'
@@ -104,32 +100,8 @@ function App() {
     showCustomer
   }
 
-  // Guests, Customers, and Restaurants ALL go to the Home component
   return (
 
-    // Rodney Testing
-    // <CustomerDashboard restaurants={restaurants} user={user} searchRestaurants={searchRestaurants} />
-
-
-
-    // Eric Testing
-
-    // <div className="landingPage">
-    //   <Routes>
-
-    //     <Route path="/admin" exact element={<LandingPage />} />
-
-    //     <Route path="/admin/signUp" element={<SignUp />} />
-
-    //     <Route path="/admin/signIn" element={<SignIn />} />
-
-    //     <Route path="/admin/adminPanel" element={<AdminPanel/>} />
-
-    //   </Routes>
-    // </div>
-
-
-    // Ismael Testing
     <>
       <NavBar methods={methods} />
       <Routes>
@@ -154,7 +126,7 @@ function App() {
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />
-        <Route path="/admin" exact element={<LandingPage />} />
+        <Route path="/admin" exact element={<LandingAdminPage />} />
         <Route path="/admin/signUp" element={<SignUp />} />
         <Route path="/admin/signIn" element={<SignIn />} />
         <Route path="/admin/adminPanel" element={<AdminPanel />} />
