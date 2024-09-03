@@ -46,7 +46,7 @@ function App() {
       setRestaurantToView(allRestaurants[random])
     }
     fetchData()
-  }, [])
+  }, [user])
 
 
   // helper functions start here
@@ -88,7 +88,8 @@ function App() {
     searchRestaurants,
     handleSignOut,
     setRestaurantToView,
-    getRestaurantDetailsToView
+    getRestaurantDetailsToView,
+    setUser
   }
 
   // Guests, Customers, and Restaurants ALL go to the Home component
@@ -135,7 +136,7 @@ function App() {
             user={user}
             methods={methods} />}
         />
-        <Route path='/customers/restaurants/:restaurantName' element={<Restaurant restaurant={restaurantToView} user={user}/>} />
+        <Route path='/customers/restaurants/:restaurantName' element={<Restaurant restaurant={restaurantToView} user={user} methods={methods}/>} />
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />
