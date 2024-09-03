@@ -16,15 +16,28 @@ const RestaurantUserProfile = () => {
     };
 
     return (
+        <>
+        <section id="restaurantName">
+        <h1>Restaurant Profile: {restaurant.name}</h1>
+        </section>
+        
+        <section id="profiles">
         <div>
-            <h1>Restaurant Profile: {restaurant.name}</h1>
+            
             <p>Username: {restaurant.username}</p>
             <p>Password: {restaurant.password}</p>
             <p>About: {restaurant.about}</p>
             <p>Address: {restaurant.address}</p>
             <img src={restaurant.image} alt={restaurant.name} style={{width: '300px', height: '200px'}} />
-            <button onClick={handleBackClick}>Back to Restaurant Database</button>
+          
         </div>
+        </section>
+
+        <section id="backButton">
+              <button onClick={handleBackClick}>Back to Restaurant Database</button>
+        </section>
+
+        </>
     );
 };
 

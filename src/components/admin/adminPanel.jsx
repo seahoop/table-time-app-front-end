@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '/src/admin.css';
+import welcomeAudio from '../../assets/adminMusic/welcomeAudio.mp3';
 
 const AdminPanel = () => {
     const navigate = useNavigate();
+    const audioRef = useRef(null);
+
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.play().catch(error => {
+                console.error('Autoplay was prevented: ', error);
+            });
+        }
+    }, []);
 
     const handleBackClick = () => {
         navigate('/admin');
@@ -18,11 +29,12 @@ const AdminPanel = () => {
 
     return (
         <>
+
             <section id="title">
                 <h1>Table Time</h1>
             </section>
 
-            <section id="Welcome">
+            <section id="welcome">
                 <h1>Welcome to Table Time Management Panel</h1>
             </section>
 
@@ -43,6 +55,8 @@ const AdminPanel = () => {
                     Sign Out
                 </button>
             </section>
+
+            <audio ref={audioRef} src={welcomeAudio}/>
         </>
     );
 }

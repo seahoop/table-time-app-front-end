@@ -13,8 +13,8 @@ const LandingPage = () => {
 
         </section>
 
-     <section id ="welcome">
-      <h1>Welcome to Admin Panel</h1>
+     <section id ="welcome1">
+      <h1>Welcome to Table Time Central Management System</h1>
       </section>
 
 

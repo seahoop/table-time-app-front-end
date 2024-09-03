@@ -66,6 +66,7 @@ const SignUp = () => {
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
+            <section id="signUp-functions">
             <form onSubmit={handleSignUp}>
                 <div>
                     <label>Username:</label>
@@ -112,14 +113,22 @@ const SignUp = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="sign-up-button">Sign Up</button>
+                
+               
             </form>
+            </section>
+
+            <section id="signUpButton">
+            <button type="submit" className="sign-up-button">Sign Up</button>
+            </section>
 
             <section id="backButton">
+                
                 <button onClick={handleBackClick} className="back-button">
                     Back
                 </button>
             </section>
+            
         </>
     );
 };

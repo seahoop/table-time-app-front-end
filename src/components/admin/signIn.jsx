@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import audio1 from '../../assets/adminMusic/youtubeAudio.mp3';
 
 const SignIn = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+
+    // Audio sound below
+    const audio1Ref = useRef(null);
 
     const handleBackClick = () => {
         navigate('/admin');
@@ -27,7 +31,23 @@ const SignIn = () => {
 
             if (response.ok) {
                 localStorage.setItem('token', data.token);
-                navigate('/admin/adminPanel'); // Navigate to admin dashboard or other protected route
+
+                // Attempt to play audio first
+                if (audio1Ref.current) {
+                    audio1Ref.current.play().then(() => {
+                        // After audio starts playing, navigate to the AdminPanel
+                        setTimeout(() => {
+                            navigate('/admin/adminPanel');
+                        }, 3000); // Adjust the delay as needed
+                    }).catch(error => {
+                        console.error('Failed to play audio:', error);
+                        // If audio playback fails, still navigate to AdminPanel
+                        navigate('/admin/adminPanel');
+                    });
+                } else {
+                    // If there's no audio reference, directly navigate
+                    navigate('/admin/adminPanel');
+                }
             } else {
                 setError(data.error);
             }
@@ -43,7 +63,7 @@ const SignIn = () => {
             </section>
 
             <section id="SignIn-Welcome">
-                <h1>Admin Sign In</h1>
+                <h1>Admin Sign In System</h1>
             </section>
 
             <section id="signInForm">
@@ -76,6 +96,8 @@ const SignIn = () => {
                     Back
                 </button>
             </section>
+
+            <audio ref={audio1Ref} src={audio1} />
         </>
     );
 };

@@ -16,8 +16,14 @@ const CustomerUserProfile = () => {
     };
 
     return (
+        <>
+        <section id="CustomerProfile">
+        <h1>Customer Profile: {customer.username}</h1>
+        </section>
+
+        <section id="CustomerData">
         <div>
-            <h1>Customer Profile: {customer.username}</h1>
+           
             <p>Password: {customer.password}</p>
             <h2>Reservations:</h2>
             <ul>
@@ -27,8 +33,14 @@ const CustomerUserProfile = () => {
                     </li>
                 )) : <p>No reservations found.</p>}
             </ul>
-            <button onClick={handleBackClick}>Back to Customer Database</button>
+            
         </div>
+        </section>
+
+        <section id="backButton">
+            <button onClick={handleBackClick}>Back to Customer Database</button>
+        </section>
+        </>
     );
 };
 
