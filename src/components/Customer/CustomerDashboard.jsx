@@ -9,7 +9,7 @@ function CustomerDashboard(props) {
 
   return (
     <>
-      <h2>Welcome, {user.username}!</h2>
+      <h2>Welcome, {customer.username}!</h2>
       <main>
         <section>
           <SearchBar searchRestaurants={methods.searchRestaurants} />

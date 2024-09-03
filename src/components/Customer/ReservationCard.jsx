@@ -1,7 +1,10 @@
 import("./ReservationCard.css")
 
-function ReservationCard(props) {
-  const { location, guests, date, time, helpers } = props
+function ReservationCard({ location, guests, date, time }) {
+  const thisDay = new Date(date)
+  const day = thisDay.toLocaleDateString('en-US',{weekday: 'short'})
+  const mmdd = thisDay.toLocaleDateString('en-US',{month: '2-digit', day: '2-digit'})
+
   return (
     <div className="grid-item">
       <div>
@@ -16,7 +19,7 @@ function ReservationCard(props) {
           {guests}
         </p>
         <p>
-          {date}
+          <p>{day}</p><p>{mmdd}</p>
         </p>
         <p>
           {time}
