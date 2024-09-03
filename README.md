@@ -24,8 +24,114 @@ The Table-Time-App is a MERN stack application designed to simplify the process 
 
 
 
-## Schema
+## Customer Schema
+``` javascript
+const customerSchema = new Schema({
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
 
+    },
+    myReservations: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Reservation"
+        }
+    ],
+    pastReservations: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Reservation"
+        }
+    ],
+    favorites: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Restaurant"
+        }
+    ]
+})
+
+customerSchema.set('toJSON', { transform: (document, returnedObject) => { delete returnedObject.password } })
+
+const Customer = new model('Customer', customerSchema)
+
+```
+
+## Reservation Schema
+```javascript
+const reservationSchema = new Schema({
+    guests: {
+        type: Number,
+        required: true,
+        min: 1,
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    time: {
+        type: String,
+        required: true,
+        match: /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/
+    },
+    isAvailable: {
+        type: Boolean,
+        default: true
+    },
+    location: {
+        type: String,
+        required: true
+    }
+})
+
+const Reservation = model('Reservation', reservationSchema)
+
+```
+## Restaurant Schema
+
+```javascript
+const restaurantSchema = new Schema({
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        default: "Your Restaurant Name"
+    },
+    about: {
+        type: String,
+        default: "Tell us about your restaurant."
+    },
+    address: {
+        type: String,
+        default: "Restaurant Address goes here."
+    },
+    image: {
+        type: String,
+    },
+    reservations: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Reservation'
+        }
+    ]
+})
+
+restaurantSchema.set('toJSON', { transform: (document, returnedObject) => { delete returnedObject.password } })
+
+const Restaurant = model('Restaurant', restaurantSchema)
+
+```
 
 ## MVP/PMVP
 
@@ -43,7 +149,7 @@ The Table-Time-App is a MERN stack application designed to simplify the process 
 * customers to get a reservation receipt
 
 ## Project Schedule
-
+ https://docs.google.com/spreadsheets/d/1ofQQJgiJbRuE2ajOwMtsqtmAo47zmwMXUgWTHBFY7nA/edit?gid=355707042#gid=355707042
 
 
 

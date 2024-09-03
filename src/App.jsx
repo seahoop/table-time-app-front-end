@@ -7,6 +7,8 @@ import NavBar from './components/Bar/NavBar.jsx'
 // Rodney Testing Imports
 import CustomerDashboard from './components/Customer/CustomerDashboard.jsx'
 import RestaurantDashboard from './components/Restaurant/RestaurantDashboard.jsx'
+import AboutUs from './components/AboutUs.jsx'
+import Footer from './components/Bar/FooterBar.jsx'
 
 // Eric Testing Imports
 import LandingAdminPage from './components/admin/landingPage.jsx';
@@ -133,7 +135,10 @@ function App() {
         <Route path="/admin/adminPanel/restaurantDataBase" element={<RestaurantDatabase />} />
         <Route path="/admin/adminPanel/customerProfile/:username" element={<CustomerUserProfile />} />
         <Route path="/admin/adminPanel/restaurantProfile/:username" element={<RestaurantUserProfile/>}/>
+        <Route path='/aboutUs' element={ <AboutUs /> } />
       </Routes>
+      <Footer methods={methods} />
+
     </>
   )
 }
