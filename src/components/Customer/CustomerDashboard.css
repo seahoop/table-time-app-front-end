@@ -1,0 +1,24 @@
+.customer-main {
+    display: flex;
+    flex: 1; /* Fills the remaining height */
+    height: 80vh; /* 80% of the viewport height */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+  }
+  
+  .customer-main section {
+    flex-basis: 67%;
+    padding: 16px;
+  }
+  
+  .customer-main aside {
+    flex-basis: 33%;
+    padding: 16px;
+  }
+  
+  /* Responsive adjustment for iPad Air */
+  @media (max-width: 834px) {
+    .customer-main section,
+    .customer-main aside {
+      flex-basis: 50%;
+    }
+  }

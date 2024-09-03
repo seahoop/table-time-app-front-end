@@ -1,6 +1,5 @@
 import RestaurantCard from "./RestaurantCard"
 import { useNavigate } from "react-router-dom"
-import "./RestaurantList.css"
 
 function RestaurantList(props) {
   const { restaurants, methods } = props
@@ -12,7 +11,7 @@ function RestaurantList(props) {
   }
 
   return (
-    <div className='grid-container'>
+    <div className='restaurants-container'>
       {restaurants.map((restaurant) => {
         return <RestaurantCard 
         onClick={() => handleClick(restaurant)}

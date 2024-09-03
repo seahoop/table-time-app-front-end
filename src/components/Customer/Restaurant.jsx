@@ -1,10 +1,10 @@
 import DaysOfTheWeek from '../Restaurant/DaysOfTheWeek';
 import ReservationContainer from '../Restaurant/ReservationContainer';
 import RestaurantDetails from '../Restaurant/RestaurantDetails';
-import "../Restaurant/RestaurantDashboard.css"
 import { useState } from 'react';
 import { makeReservation } from '../../services/customer'
 import { useNavigate } from 'react-router-dom';
+import './Restaurant.css'
 
 function Restaurant({ restaurant, user, methods }) {
     const [selectedDay, setSelectedDay] = useState(null)
@@ -29,10 +29,9 @@ function Restaurant({ restaurant, user, methods }) {
     }) : restaurant.reservations
 
     return (
-        <div className="restaurant-dashboard">
-            <h2>{restaurant.name}</h2>
-            <h3>{restaurant.about}</h3>
+        <div className="restaurant-page">
             <RestaurantDetails
+                name={restaurant.name}
                 about={restaurant.about}
                 address={restaurant.address}
                 image={restaurant.image}

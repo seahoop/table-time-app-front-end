@@ -1,4 +1,3 @@
-import "./ReservationCard.css"
 import EditReservationButton from "../Button/EditReservationButton"
 import CancelReservationButton from "../Button/CancelReservationButton"
 import SubmitChangesButton from "../Button/SubmitChangesButton"
@@ -39,7 +38,7 @@ function ReservationCard({ reservation, customerMethods }) {
   }
 
   return (
-    <div className="grid-item">
+    <div className="reservations-item">
       <div>
         <p>
           {location}

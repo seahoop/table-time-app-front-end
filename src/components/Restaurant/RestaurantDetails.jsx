@@ -1,16 +1,16 @@
 import RestaurantImage from './RestaurantImage';
-import "./RestaurantDetails.css"
 
 function RestaurantDetails(props) {
-  const { about, address, image } = props;
+  const { about, address, image, name } = props;
 
   return (
     <div className="restaurant-details">
-      <RestaurantImage image={image} />
       <div className="details">
+        <p>{name}</p>
         <p>{about}</p>
         <p>{address}</p>
       </div>
+      <img src={image} alt="Restaurant" />
     </div>
   );
 }

@@ -18,7 +18,6 @@ import CustomerDatabase from './components/admin/customerData.jsx'
 import CustomerUserProfile from './components/admin/customerUserProfile.jsx';
 import RestaurantUserProfile from './components/admin/restaurantUserProfile.jsx';
 
-
 // Ismael Testing Imports
 import SignUpCustomer from "./components/Authorization/SignUpCustomer.jsx"
 import SignInCustomer from './components/Authorization/SignInCustomer.jsx'

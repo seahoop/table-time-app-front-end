@@ -1,0 +1,130 @@
+/* General Styles */
+.restaurant-page {
+  width: 100%;
+  height: 80vh; /* 80% of window height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Restaurant Details */
+.restaurant-details {
+  height: 50%; /* 50% of the restaurant-page */
+  width: 100dvw;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.restaurant-details img {
+  height: 100%; /* 50% of restaurant-details = 20% of window height */
+  min-width: 67%;
+  object-fit: cover;
+  display: block;
+  margin: 0px;
+  border-radius: 4px;
+}
+
+.details {
+  height: 100%; /* Remaining 50% of restaurant-details */
+  width: 33%;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+}
+
+.details p:first-child {
+  font-size: 4em;
+  margin: 0px 0px;
+}
+
+.details p:nth-child(2) {
+  font-size: 1.5em;
+  margin: 0px;
+}
+
+.details p:last-child {
+  font-size: 1.5em;
+}
+
+/* Days of the Week */
+.days-of-the-week {
+  height: 15%;
+  width: 67%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0px;
+}
+
+.days-of-the-week button {
+  background-color: #007bff; /* Example button color */
+  color: white;
+  width: 100px; /* Example width */
+  height: 40px; /* Example height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* Reservation Container */
+.reservation-container {
+  width: 100%;
+  height: 35%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:flex-start;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.reservation-container h3 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.time-slot-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px 10px;
+  gap: 16px;
+}
+
+.time-slot-card {
+  width: 15vw; /* No more than 15% of the window width */
+  height: 10vh; /* No more than 10% of the window height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  box-sizing: border-box;
+  background-color: #f5f5f5; /* Example background color */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example shadow */
+}
+
+.time-slot-card img {
+  max-height: 40%; /* No more than 40% of the card height */
+  max-width: 40%; /* Maintain aspect ratio */
+  object-fit: cover;
+}
+
+.time-slot-card p {
+  margin: 0;
+  padding: 0 8px;
+  flex: 1;
+}

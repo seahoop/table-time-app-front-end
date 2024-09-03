@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '/src/admin.css';
+// import '/src/admin.css';
 import welcomeAudio from '../../assets/adminMusic/welcomeAudio.mp3';
 
 const AdminPanel = () => {

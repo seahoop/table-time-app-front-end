@@ -4,9 +4,9 @@ function RestaurantCard(props) {
   const { img, name, about, onClick} = props
 
   return (
-    <div className='grid-item' onClick={onClick}>
+    <div className='restaurant-item' onClick={onClick}>
       <img src={img} alt={``}/>
-      <div>
+      <div className="restaurant-info">
         <p>
           {name}
         </p>

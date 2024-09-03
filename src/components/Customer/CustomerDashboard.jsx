@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
 import RestaurantList from "./RestaurantList.jsx"
 import ReservationList from './ReservationList.jsx'
 import SearchBar from "./SearchBar.jsx"
 import { editReservation, cancelReservation } from "../../services/customer.js"
 import { useNavigate } from "react-router-dom"
+import './CustomerDashboard.css'
 
 function CustomerDashboard({ restaurants, user, methods }) {
 
@@ -38,7 +38,7 @@ function CustomerDashboard({ restaurants, user, methods }) {
       {user ? (
         <>
           <h2>Welcome, {user.username}!</h2>
-          <main>
+          <main className='customer-main'>
             <section>
               <SearchBar searchRestaurants={methods.searchRestaurants} />
               <RestaurantList restaurants={restaurants} methods={methods} />
