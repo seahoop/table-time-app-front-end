@@ -13,3 +13,13 @@ export const getRestaurantPage = async ({ userId, restaurantId }) => {
     const restaurant = await handleResponse(response)
     return restaurant
 }
+
+export const makeReservation = async (userId, restaurantId, reservationId) => {
+    const response = await fetch(`${BASE_URL}/customers/${userId}/restaurants/${restaurantId}/reservations/${reservationId}`, {
+        method: 'PUT',
+        headers: { "Content-Type": "application/json" },
+    })
+
+    const customer = await handleResponse(response)
+    return customer
+}

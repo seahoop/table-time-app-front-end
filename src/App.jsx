@@ -135,7 +135,7 @@ function App() {
             user={user}
             methods={methods} />}
         />
-        <Route path='/customers/restaurants/:restaurantName' element={<Restaurant restaurant={restaurantToView} />} />
+        <Route path='/customers/restaurants/:restaurantName' element={<Restaurant restaurant={restaurantToView} user={user}/>} />
         <Route path='/restaurants/dashboard' element={<RestaurantDashboard
           restaurant={user}
         />} />

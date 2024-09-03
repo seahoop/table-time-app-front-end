@@ -21,7 +21,7 @@ function SignInCustomer({ handleUserAndVisitorType }) {
     const user = await customerSignIn(formData)
     const visitorType = getVisitorType()
     handleUserAndVisitorType({user, visitorType})
-    navigate('/')
+    navigate('/customers/dashboard')
   }
   return (
     <div>

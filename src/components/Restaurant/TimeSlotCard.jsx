@@ -1,10 +1,11 @@
 import "./TimeSlotCard.css"
-function TimeSlotCard(props) {
-  const { time } = props;
+import AddButton from "../Button/AddButton";
 
+function TimeSlotCard({time, onClickAdd, user, reservationId}) {
   return (
     <div className="time-slot-card">
-      <button>{time}</button>
+      <p>{time}</p>
+      {user ? <AddButton onClickAdd={() => onClickAdd(reservationId)} /> : <></>}
     </div>
   );
 }
