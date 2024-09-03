@@ -20,7 +20,7 @@ function SignInCustomer({ handleUserAndVisitorType }) {
     event.preventDefault()
     const user = await customerSignIn(formData)
     const visitorType = getVisitorType()
-    handleUserAndVisitorType({user, visitorType})
+    handleUserAndVisitorType(user, visitorType)
     navigate('/customers/dashboard')
   }
   return (

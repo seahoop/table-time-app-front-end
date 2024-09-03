@@ -23,8 +23,8 @@ function SignUpCustomer({ handleUserAndVisitorType }) {
     }
     const user = await customerSignUp(formData)
     const visitorType = getVisitorType()
-    handleUserAndVisitorType({user, visitorType})
-    navigate('/')
+    handleUserAndVisitorType(user, visitorType)
+    navigate('/customers/dashboard')
   }
 
   return (
