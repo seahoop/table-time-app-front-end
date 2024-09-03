@@ -38,7 +38,7 @@ const RestaurantDatabase = () => {
 
     return (
         <>
-            <section className="title">
+            <section className="restaurantData-title">
                 <h1>Table Time</h1>
             </section>
 
@@ -55,7 +55,7 @@ const RestaurantDatabase = () => {
                 />
             </section>
 
-            <section className="restaurantList">
+            <section className="restaurantData-restaurantList">
                 <ul>
                     {restaurants.map(restaurant => (
                         <li key={restaurant.username}>
@@ -67,7 +67,7 @@ const RestaurantDatabase = () => {
                 </ul>
             </section>
 
-            <section className="backToAdminPanel">
+            <section className="restaurantData-backToAdminPanel">
                 <button onClick={handleBackClick} >
                     Back To Admin Panel
                 </button>

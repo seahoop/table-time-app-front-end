@@ -57,7 +57,7 @@ const SignUp = () => {
 
     return (
         <>
-            <section className="title">
+            <section className="signUp-title">
                 <h1>Table Time</h1>
             </section>
 
@@ -123,7 +123,7 @@ const SignUp = () => {
             <button type="submit" className="sign-up-button">Sign Up</button>
             </section>
 
-            <section className="backButton">
+            <section className="signUp-backButton">
                 
                 <button onClick={handleBackClick} className="back-button">
                     Back

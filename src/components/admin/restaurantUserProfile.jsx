@@ -34,7 +34,7 @@ const RestaurantUserProfile = () => {
         </div>
         </section>
 
-        <section className="backButton">
+        <section className="restaurantUserProfile-backButton">
               <button onClick={handleBackClick}>Back to Restaurant Database</button>
         </section>
 

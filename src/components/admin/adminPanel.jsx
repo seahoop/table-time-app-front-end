@@ -30,11 +30,11 @@ const AdminPanel = () => {
     return (
         <>
 
-            <section className="title">
+            <section className="adminPanel-title">
                 <h1>Table Time</h1>
             </section>
 
-            <section className="welcome">
+            <section className="adminPanel-welcome">
                 <h1>Welcome to Table Time Management Panel</h1>
             </section>
 
@@ -50,7 +50,7 @@ const AdminPanel = () => {
                 </button>
             </section>
 
-            <section className="backButton">
+            <section className="adminPanel-backButton">
                 <button onClick={handleBackClick} className="back-button">
                     Sign Out
                 </button>

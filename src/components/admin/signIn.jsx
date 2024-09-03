@@ -59,7 +59,7 @@ const SignIn = () => {
 
     return (
         <>
-            <section className="title">
+            <section className="signIn-title">
                 <h1>Table Time</h1>
             </section>
 
@@ -92,7 +92,7 @@ const SignIn = () => {
                 {error && <p style={{ color: 'red' }}>{error}</p>}
             </section>
 
-            <section className="backButton">
+            <section className="signIn-backButton">
                 <button onClick={handleBackClick} className="back-button">
                     Back
                 </button>

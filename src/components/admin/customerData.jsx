@@ -39,11 +39,11 @@ const CustomerDatabase = () => {
 
     return (
         <>
-            <section className="title">
+            <section className="customerData-title">
                 <h1>Table Time</h1>
             </section>
 
-            <section className="welcome-Title">
+            <section className="customerData-welcomeTitle">
                 <h2>Welcome to Table Time Customer Database</h2>
             </section>
 
@@ -68,7 +68,7 @@ const CustomerDatabase = () => {
                 </ul>
             </section>
 
-            <section className="backToAdminPanel">
+            <section className="cutomerData-backToAdminPanel">
                 <button onClick={handleBackClick} >
                     Back To Admin Panel
                 </button>

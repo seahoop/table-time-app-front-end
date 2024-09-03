@@ -38,7 +38,7 @@ const CustomerUserProfile = () => {
         </div>
         </section>
 
-        <section className="backButton">
+        <section className="customerUserProfile-backButton">
             <button onClick={handleBackClick}>Back to Customer Database</button>
         </section>
         </>

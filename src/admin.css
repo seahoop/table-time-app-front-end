@@ -32,8 +32,8 @@ body::before {
     z-index: -1; /* Ensure the background is behind the content */
 }
 /* LandingPage-----------------------------------------START*/
-.welcome1{
-    font-size: 0.9rem;
+.landingpage-welcome{
+    font-size: 2rem;
     font-style: italic;
     position: absolute;
     top: 0;
@@ -41,19 +41,36 @@ body::before {
     transform: translateX(-60px);
 }
 
-.title {
+.landingpage-title{
     position: absolute;
     top: 0;
     left: 0;
-    font-weight: 900;
-    font-style: italic;
-    z-index: 1; /* Ensure title is above other elements */
-    color: rgb(255, 255, 255); /* Ensure text color contrasts with the background */
+    font-size: 1.9rem;
 }
+
+
+.landingpage-adminSignUp .sign-up {
+    font-size: 4rem;
+    margin-bottom: 80px;
+    
+}
+
+.landingpage-adminSignIn .sign-in{
+    font-size: 4.2rem;
+}
+
+
 /* LandingPage-----------------------------------------END*/
 
 
 /* adminSignUp-----------------------------------------START*/
+
+.signUp-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+}
 .adminSignUp{
     font-size: 5rem;
     margin-bottom: 80px;
@@ -67,7 +84,7 @@ body::before {
 }
 
 .signUp-Welcome{
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     position: absolute;
     top:0;
     right:0;
@@ -75,71 +92,109 @@ body::before {
     font-style: italic;
 }
 
-.signUp-functions{
-    font-size: 4rem;
+.signUp-functions {
+    font-size: 3rem;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 10px;
+    color: black;;
 
+}
+
+.signUp-functions label {
+    color: white;
 }
 .signUpButton{
     font-size: 3rem;
+    color: black;
+   
 }
 
-.backButton{
+.signUp-backButton .back-button{
     position: absolute;
     bottom: 0;
     right: 0;
-    font-size: 2rem;
+    font-size: 4rem;
 }
 /* adminSignUp-----------------------------------------END*/
 
 
 /* adminSignIn-----------------------------------------START*/
+
+.signIn-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+
+}
 .SignIn-Welcome{
     position: absolute;
     top: 0;
     right: 0;
+    font-size: 1.8rem;
     transform: translateX(-150px);
 }
 
-.signInForm {
+.signInForm label{
     font-size: 4rem;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 50px;
+    color: white;
 }
 
 .signIn-button{
     font-size: 3rem;
 }
 
+.signIn-backButton .back-button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 3rem;
+}
 
 
 
 /* adminSignUp-----------------------------------------END*/
 
 /* adminPanel-----------------------------------------START*/
-.welcome{
+
+.adminPanel-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+}
+.adminPanel-welcome{
     position: absolute;
     top: 0;
     right: 0;
     transform: translateX(-80px);
     font-style: italic;
     font-weight: bold;
+    font-size: 1.8rem;
 }
 
-.RestaurantDataBase{
+.RestaurantDataBase .Restaurant-Data-Base{
     font-size: 4rem;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 50px;
 }
 
-.CustomerDataBase{
+.CustomerDataBase .Customer-Data-Base{
     font-size: 4.2rem;
     font-style: italic;
     font-weight: bold;
+}
+
+.adminPanel-backButton .back-button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 3rem;
 }
 
 /* adminPanel-----------------------------------------END*/
@@ -180,32 +235,108 @@ body::before {
     font-size: 1.4rem;
 }
 
-/* adminPanel/DatabseCustomer-----------------------------------------END*/
-
-
-/* adminPanel/DatabseRestaurant/profile-----------------------------------------START*/
-.profiles{
+.customerData-title{
+    position: absolute;
+    top: 0;
+    left: 0;
     font-size: 2rem;
     font-style: italic;
     font-weight: bold;
 }
 
-.restaurantName{
+.customerData-welcomeTitle h2{
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.8rem;
+    font-style: italic;
+}
+
+.customerList{
+    font-size: 3rem;
+}
+
+.cutomerData-backToAdminPanel button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 3rem;
+
+
+}
+
+.restaurantData-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-style: italic; 
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.restaurantData-restaurantList{
+    font-size: 3rem;
+}
+
+/* adminPanel/DatabseCustomer-----------------------------------------END*/
+
+
+/* adminPanel/DatabseRestaurant/profile-----------------------------------------START*/
+
+.profiles{
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    
+}
+
+.restaurantName {
+    top: 0;
+    position: absolute;
+    align-items: center;
     font-size: 2rem;
     margin-bottom: 50px;
     
 }
 
+.restaurantData-backToAdminPanel button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 3rem;
+}
+
+.restaurantUserProfile-backButton button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 3rem;
+}
 /* adminPanel/DatabseCustomer/profile-----------------------------------------END*/
 .CustomerProfile{
     font-size: 2rem;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 50px;
+    top: 0;
+    position: absolute;
 }
 
 .CustomerData{
     font-size: 2rem;
     
+}
+
+.CustomerData h2{
+    color: white;
+}
+
+.customerUserProfile-backButton button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 3rem;
+
 }
 /* adminPanel/DatabseCustomer/profile-----------------------------------------START*/
