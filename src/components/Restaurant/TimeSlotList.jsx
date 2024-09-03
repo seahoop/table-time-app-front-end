@@ -23,7 +23,7 @@ function TimeSlotList({ reservations, onClickAdd, user }) {
   return (
     <div className="time-slot-list">
       {convertedReservations.map((reservation, index) => (
-        <TimeSlotCard key={index} time={reservation.time} reservationId={reservation._id} user={user} onClickAdd={onClickAdd} />
+        <TimeSlotCard key={index} reservation={reservation} user={user} onClickAdd={onClickAdd} />
       ))}
     </div>
   );

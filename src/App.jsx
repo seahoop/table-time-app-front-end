@@ -46,7 +46,7 @@ function App() {
       setRestaurantToView(allRestaurants[random])
     }
     fetchData()
-  }, [user])
+  }, [])
 
 
   // helper functions start here
@@ -89,7 +89,7 @@ function App() {
     handleSignOut,
     setRestaurantToView,
     getRestaurantDetailsToView,
-    setUser
+    setUser,
   }
 
   // Guests, Customers, and Restaurants ALL go to the Home component

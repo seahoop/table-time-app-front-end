@@ -1,13 +1,12 @@
 import ReservationCard from "./ReservationCard"
-import ("./ReservationList.css")
+import("./ReservationList.css")
 
-function ReservationList(props) {
-  const { reservations, setCustomer } = props
+function ReservationList({ reservations, customerMethods }) {
 
   return (
     <div className="grid-container">
       {reservations.map((reservation) => {
-        return <ReservationCard location={reservation.location} guests={reservation.guests} date={reservation.date} time={reservation.time} key={reservation.location + reservation.guests + reservation.time} setCustomer={setCustomer}/>
+        return <ReservationCard reservation={reservation} key={reservation.location + reservation.guests + reservation.time} customerMethods={customerMethods} />
       })}
     </div>
   )

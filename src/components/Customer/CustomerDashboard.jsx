@@ -1,11 +1,30 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import RestaurantList from "./RestaurantList.jsx"
 import ReservationList from './ReservationList.jsx'
 import SearchBar from "./SearchBar.jsx"
+import { editReservation } from "../../services/customer.js"
 
-function CustomerDashboard(props) {
-  const { restaurants, user, methods } = props
+function CustomerDashboard({ restaurants, user, methods }) {
   const [customer, setCustomer] = useState(user)
+
+  useEffect(() => {
+  }, [customer])
+
+  const editCustomerReservation = async (reservationId, formdata) => {
+    const customerWithReservationEdits = await editReservation(customer._id, reservationId, formdata)
+    methods.setUser(customerWithReservationEdits)
+  }
+
+  const cancelCustomerReservation = async (reservationId) => {
+
+  }
+
+  const customerMethods = {
+    ...methods,
+    editCustomerReservation,
+    cancelCustomerReservation,
+    setCustomer
+  }
 
   return (
     <>
@@ -19,7 +38,7 @@ function CustomerDashboard(props) {
           {user.myReservations ?
             <>
               <h1>My Reservations</h1>
-              <ReservationList reservations={customer.myReservations} setCustomer={setCustomer} />
+              <ReservationList reservations={customer.myReservations} customerMethods={customerMethods} />
             </> :
             <>
               <h2>Make your first reservation!</h2>
