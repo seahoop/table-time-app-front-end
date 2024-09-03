@@ -101,7 +101,6 @@ function App() {
   }
 
   return (
-
     <>
       <NavBar methods={methods} />
       <Routes>
@@ -136,7 +135,6 @@ function App() {
         <Route path="/admin/adminPanel/restaurantProfile/:username" element={<RestaurantUserProfile/>}/>
       </Routes>
     </>
-    
   )
 }
 

@@ -6,12 +6,11 @@ import SignOutButton from "../Button/SignOutButton"
 
 function NavBar({ methods }) {
     const location = useLocation()
-
     return (
         <nav>
             {location.pathname === '/' && <> <SignUpAndInButtons /> </>}
             {location.pathname === '/customers/dashboard' && <> <SignOutButton methods={methods} /> </>}
-            {/* {location.pathname === '/customers/restaurant/:restaurantname' && <> <SignOutButton /> <CustomerDashboardButton /> </>} */}
+            {location.pathname === '/customers/restaurants/:restaurantname' && <> <SignOutButton /> <CustomerDashboardButton /> </>}
             {location.pathname === '/restaurants/dashboard' && <> <SignOutButton /> <EditRestaurantButton /> </>}
         </nav>
     )

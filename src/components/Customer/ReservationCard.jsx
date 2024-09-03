@@ -4,7 +4,6 @@ import CancelReservationButton from "../Button/CancelReservationButton"
 import SubmitChangesButton from "../Button/SubmitChangesButton"
 import CancelChangesButton from "../Button/CancelChangesButton"
 import { useState } from "react"
-import { editReservation } from "../../services/customer"
 
 function ReservationCard({ reservation, customerMethods }) {
   const { location, guests, date, time, _id } = reservation

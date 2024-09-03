@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { customerSignIn, getVisitorType } from "../../services/auth"
+import './auth.css'
 
 function SignInCustomer({ handleUserAndVisitorType }) {
   const [formData, setFormData] = useState(

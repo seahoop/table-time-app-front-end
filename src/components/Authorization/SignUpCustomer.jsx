@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { customerSignUp, getVisitorType } from "../../services/auth"
 import { useNavigate } from "react-router-dom"
+import './auth.css'
 
 function SignUpCustomer({ handleUserAndVisitorType }) {
   const [formData, setFormData] = useState({
